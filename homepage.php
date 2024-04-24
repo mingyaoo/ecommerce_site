@@ -10,6 +10,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
+        <!-- this is the bootstrap code for the nav bar of all pages -->
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="javascript:void(0)">Logo</a>
@@ -19,7 +20,7 @@
                 <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class= "nav nav-pills">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">categories</a>
+                        <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="#">categories</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Link 1</a></li>
                             <li><a class="dropdown-item" href="#">Link 2</a></li>
@@ -48,11 +49,26 @@
                 </div>
             </div>
         </nav>
-
-        <div class = "container", style="background-color: teal">
+        <!-- this describes a container / box to outline the initial diagram, which i will convert into a carousel -->
+        <div class = "container-fluid", style="background-color: #99DDFF;padding:100px;">
+            <h1></h1>
             <h3 style="text-align: centre;"> carousel photos</h3>
-
+            <h1></h1>
         </div>
+
+        <!--there will be multiple boxes for pictures and diagrams to showcase some products -->
+        <div class="row", style="padding:50px;">
+            <div class="col-sm-3">item 1</div>
+            <div class="col-sm-3">item 2</div>
+            <div class="col-sm-3">item 3</div>
+            <div class="col-sm-3">item 4</div>
+        </div>
+
+        <!-- this is another box / container to act as a footer for the webpage-->
+        <div class="container-fluid", style="background-color: #3FD2C7;padding:75px;">
+            <h3>section for contacts and about my company (address, shop, contact, etc)</h3>
+        </div>
+
     
 
 
