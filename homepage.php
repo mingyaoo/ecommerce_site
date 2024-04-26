@@ -13,18 +13,20 @@
         <!-- this is the bootstrap code for the nav bar of all pages -->
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+                <a class="navbar-brand" href="homepage.php">
+                    My Project
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class= "nav nav-pills">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="#">categories</a>
+                        <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="categories.php">Categories</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Link 1</a></li>
-                            <li><a class="dropdown-item" href="#">Link 2</a></li>
-                            <li><a class="dropdown-item" href="#">Link 3</a></li>
+                            <li><a class="dropdown-item" href="categories.php">category-1</a></li>
+                            <li><a class="dropdown-item" href="categories.php">category-2</a></li>
+                            <li><a class="dropdown-item" href="categories.php">category-3</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -34,34 +36,114 @@
                 </form>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">favourites</a>
+                    <a class="nav-link" href="javascript:void(0)">Favourites</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">notifications</a>
+                    <a class="nav-link" href="javascript:void(0)">Notifications</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">profile</a>
+                    <a class="nav-link" href="javascript:void(0)">Profile</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">cart</a>
+                    <a class="nav-link" href="javascript:void(0)">Cart</a>
                     </li>
                 </ul>
                 </div>
             </div>
         </nav>
-        <!-- this describes a container / box to outline the initial diagram, which i will convert into a carousel -->
-        <div class = "container-fluid", style="background-color: #99DDFF;padding:100px;">
-            <h1></h1>
-            <h3 style="text-align: centre;"> carousel photos</h3>
-            <h1></h1>
+                
+        <!-- Carousel -->
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            </div>
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="keychain1.jpg" alt="crochet-1" class="d-block w-100" height="500px" >
+                    <div class="carousel-caption">
+                        <h3>Colourful overview of keychains</h3>
+                        <p>multiple keychains in one photo</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="keychain2.jpg" alt="" class="d-block w-100" height="500px">
+                </div>
+                <div class="carousel-item">
+                    <img src="keychain3.jpg" alt="" class="d-block w-100" height="500px">
+                </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
         </div>
 
         <!--there will be multiple boxes for pictures and diagrams to showcase some products -->
-        <div class="row", style="padding:50px;">
-            <div class="col-sm-3">item 1</div>
-            <div class="col-sm-3">item 2</div>
-            <div class="col-sm-3">item 3</div>
-            <div class="col-sm-3">item 4</div>
+        <div class="row", style="padding:15px;padding-bottom:10px;">
+            <div class="col-sm-3" style="text-align:center">
+                <h1>Promotional Products</h1>
+            </div>
+            <div class="col-sm-3">
+                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="">item-2</a>
+            </div>
+            <div class="col-sm-3">
+                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="">item-3</a>
+            </div>
+            <div class="col-sm-3">
+                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="">item-4</a>
+            </div>
+        </div>
+        <div class="row", style="padding:15px;padding-bottom:10px;">
+            <div class="col-sm-3">
+                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="">item-1</a>
+            </div>
+            <div class="col-sm-3">
+                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="">item-2</a>
+            </div>
+            <div class="col-sm-3">
+                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="">item-3</a>
+            </div>
+            <div class="col-sm-3">
+                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="">item-4</a>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <h2 style="text-align:center">Shop by Category</h2>
+            <div class="row", style="padding:15px;padding-bottom:10px;">
+            <div class="col-sm-3">
+                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="">category-1</a>
+            </div>
+            <div class="col-sm-3">
+                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="">category-2</a>
+            </div>
+            <div class="col-sm-3">
+                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="">category-3</a>
+            </div>
+            <div class="col-sm-3">
+                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="">category-4</a>
+            </div>
+        </div>
         </div>
 
         <!-- this is another box / container to act as a footer for the webpage-->
