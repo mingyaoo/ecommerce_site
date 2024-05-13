@@ -24,8 +24,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="categories.php">Categories</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="categories.php">category-1</a></li>
-                            <li><a class="dropdown-item" href="categories.php">category-2</a></li>
+                            <li><a class="dropdown-item" href="category1.php">keychain (single plush)</a></li>
+                            <li><a class="dropdown-item" href="categories.php">chains</a></li>
                             <li><a class="dropdown-item" href="categories.php">category-3</a></li>
                         </ul>
                     </li>
@@ -46,6 +46,9 @@
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="login.php">Sign In</a>
                     </li>
                 </ul>
                 </div>
@@ -89,51 +92,58 @@
         </div>
 
         <!--there will be multiple boxes for pictures and diagrams to showcase some products -->
-        <div class="row", style="padding:15px;padding-bottom:10px;">
+        <div class="row", style="padding:15px;padding-bottom:10px; background-color:#99DDFF;">
             <div class="col-sm-3" style="text-align:center">
-                <h1>Promotional Products</h1>
+                <h1 style="padding-top:45px;">Promotional Products</h1>
             </div>
             <div class="col-sm-3">
-                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="">item-2</a>
+                <a href="">
+                    <img src="promo2.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                </a>
             </div>
             <div class="col-sm-3">
-                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="">item-3</a>
+                <a href="">
+                    <img src="promo3.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                </a>           
             </div>
             <div class="col-sm-3">
-                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="">item-4</a>
+                <a href="">
+                    <img src="promo4.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                </a>
             </div>
         </div>
-        <div class="row", style="padding:15px;padding-bottom:10px;">
+        <div class="row", style="padding:15px;padding-bottom:10px; background-color:#99DDFF;">
             <div class="col-sm-3">
-                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="">item-1</a>
+                <a href="">
+                    <img src="promo5.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                </a>
             </div>
             <div class="col-sm-3">
-                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="">item-2</a>
+                <a href="">
+                    <img src="promo6.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                </a>
             </div>
             <div class="col-sm-3">
-                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="">item-3</a>
+                <a href="">
+                    <img src="promo7.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                </a>
             </div>
             <div class="col-sm-3">
-                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="">item-4</a>
+                <a href="">
+                    <img src="promotionproduct1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                </a>
             </div>
         </div>
-        <div class="container-fluid">
-            <h2 style="text-align:center">Shop by Category</h2>
+        <div class="container-fluid" style="background-color:#99DDFF;">
+            <h2 style="text-align:center; padding-top:30px">Shop by Category</h2>
             <div class="row", style="padding:15px;padding-bottom:10px;">
             <div class="col-sm-3">
-                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="">category-1</a>
+                <img src="keychaincat1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="" style="text-align:centre;">keychain (single plush)</a>
             </div>
             <div class="col-sm-3">
-                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="">category-2</a>
+                <img src="chaincat1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <a href="">chains</a>
             </div>
             <div class="col-sm-3">
                 <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
@@ -147,9 +157,11 @@
         </div>
 
         <!-- this is another box / container to act as a footer for the webpage-->
-        <div class="container-fluid", style="background-color: #3FD2C7;padding:75px;">
-            <h3>section for contacts and about my company (address, shop, contact, etc)</h3>
-        </div>
+        <footer>
+            <div class="container-fluid", style="background-color: #3FD2C7;padding:75px;">
+                <h3>section for contacts and about my company (address, shop, contact, etc)</h3>
+            </div>
+        </footer>
 
     
 

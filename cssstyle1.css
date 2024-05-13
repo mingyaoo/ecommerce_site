@@ -1,0 +1,12 @@
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    }
+.inputlong{
+    width:100%;
+    padding-left:100px;
+    padding-right:100px;
+}
