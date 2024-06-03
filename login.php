@@ -11,8 +11,8 @@
 
     </head>
 <body>
-            <!-- this is the bootstrap code for the nav bar of all pages -->
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+         <!-- this is the bootstrap code for the nav bar of all pages -->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="homepage.php">
                     My Project
@@ -26,8 +26,8 @@
                         <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="categories.php">Categories</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="category1.php">keychain (single plush)</a></li>
-                            <li><a class="dropdown-item" href="categories.php">chains</a></li>
-                            <li><a class="dropdown-item" href="categories.php">category-3</a></li>
+                            <li><a class="dropdown-item" href="category2.php">chains</a></li>
+                            <li><a class="dropdown-item" href="category3.php">category-3</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -50,6 +50,9 @@
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="login.php">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
                 </div>
@@ -77,6 +80,7 @@
                         <button  class="btn btn-primary btn-dark text " value="Sign In">
                         Sign In
                         </button>
+                    <!--creates a button with bootstrap in order to submit data into the next form-->
 
                     </div>
                 </form>
@@ -90,6 +94,12 @@
                 <a href="signup.php">
                     <button type="button" class="btn btn-dark">Create an account</button>
                     <!--this will link me to a sign up for new users page-->
+                </a>
+                <p style="text-align:left; color:#C7C7C7">Wish to log out of account?</p>
+
+                <a href="logout.php">
+                    <button type="button" class="btn btn-dark">Logout</button>
+                    <!--this will link me to a logout page in which unsets user binds-->
                 </a>
 
             </div>

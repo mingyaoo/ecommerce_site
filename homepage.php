@@ -1,4 +1,7 @@
 
+<?php
+                session_start();
+                ?>
 <!DOCTYPE html>
 <html>
 
@@ -8,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="cssstyle1.css" rel="stylesheet">
     </head>
     <body>
         <!-- this is the bootstrap code for the nav bar of all pages -->
@@ -25,8 +29,8 @@
                         <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="categories.php">Categories</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="category1.php">keychain (single plush)</a></li>
-                            <li><a class="dropdown-item" href="categories.php">chains</a></li>
-                            <li><a class="dropdown-item" href="categories.php">category-3</a></li>
+                            <li><a class="dropdown-item" href="category2.php">chains</a></li>
+                            <li><a class="dropdown-item" href="category3.php">category-3</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -49,6 +53,9 @@
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="login.php">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
                 </div>
@@ -138,20 +145,28 @@
             <h2 style="text-align:center; padding-top:30px">Shop by Category</h2>
             <div class="row", style="padding:15px;padding-bottom:10px;">
             <div class="col-sm-3">
-                <img src="keychaincat1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="" style="text-align:centre;">keychain (single plush)</a>
+                <a href ="category1.php">
+                    <img src="keychaincat1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                    <h4>keychain (single plush)</h4>
+                </a>
             </div>
             <div class="col-sm-3">
-                <img src="chaincat1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="">chains</a>
+                <a href ="category2.php">
+                    <img src="chaincat1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                    <h4>chains</h4>
+                </a>
             </div>
             <div class="col-sm-3">
-                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="">category-3</a>
+                <a href ="category2.php">
+                    <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                    <h4>category-3</h4>
+                </a>
             </div>
             <div class="col-sm-3">
-                <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                <a href="">category-4</a>
+                <a href ="category2.php">
+                    <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                    <h4>category-4</h4>
+                </a>
             </div>
         </div>
         </div>
@@ -160,6 +175,19 @@
         <footer>
             <div class="container-fluid", style="background-color: #3FD2C7;padding:75px;">
                 <h3>section for contacts and about my company (address, shop, contact, etc)</h3>
+            
+            <!--adding a thank you message for user who had visited website-->
+            <h4>
+            <?php
+                include_once ("connection.php");
+                $stmt = $conn->prepare("SELECT forename FROM tblusers WHERE UserID = :loggedinid" );
+                $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
+                $stmt->execute();
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    echo("Thank you " . $row["forename"] . " for visiting our website");
+                }
+            ?>
+            </h4>
             </div>
         </footer>
 

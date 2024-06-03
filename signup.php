@@ -12,8 +12,8 @@
 
     </head>
 <body>
-            <!-- this is the bootstrap code for the nav bar of all pages -->
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+       <!-- this is the bootstrap code for the nav bar of all pages -->
+       <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="homepage.php">
                     My Project
@@ -27,8 +27,8 @@
                         <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="categories.php">Categories</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="category1.php">keychain (single plush)</a></li>
-                            <li><a class="dropdown-item" href="categories.php">chains</a></li>
-                            <li><a class="dropdown-item" href="categories.php">category-3</a></li>
+                            <li><a class="dropdown-item" href="category2.php">chains</a></li>
+                            <li><a class="dropdown-item" href="category3.php">category-3</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -52,6 +52,9 @@
                     <li class="nav-item">
                     <a class="nav-link" href="login.php">Sign In</a>
                     </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
+                    </li>
                 </ul>
                 </div>
             </div>
@@ -63,7 +66,7 @@
             <div class="card-header" style="text-align:center; padding:35px">
                 <h1>Sign Up</h1>
             </div>
-            <div class="card-body" style="padding-left:100px; padding-right:100px;">
+            <div class="card-body inputlong">
                 <form action="signupprocess.php" method="post">
                     <!--creates a form in which im able to send information to my php process page-->
                         <h6>Email:</h6>

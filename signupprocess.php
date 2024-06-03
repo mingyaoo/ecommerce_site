@@ -33,7 +33,7 @@ $stmt->execute();
 $conn=null;
 
 
-header('Location: signup.php');
+header('Location: login.php');
 ?>
 
 

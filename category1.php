@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+    
+
 
     <head>
         <title>Category 1 Page</title>  
@@ -9,8 +11,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
-                <!-- this is the bootstrap code for the nav bar of all pages -->
-                <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <!-- this is the bootstrap code for the nav bar of all pages -->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="homepage.php">
                     My Project
@@ -24,8 +26,8 @@
                         <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="categories.php">Categories</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="category1.php">keychain (single plush)</a></li>
-                            <li><a class="dropdown-item" href="categories.php">chains</a></li>
-                            <li><a class="dropdown-item" href="categories.php">category-3</a></li>
+                            <li><a class="dropdown-item" href="category2.php">chains</a></li>
+                            <li><a class="dropdown-item" href="category3.php">category-3</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -49,6 +51,9 @@
                     <li class="nav-item">
                     <a class="nav-link" href="login.php">Sign In</a>
                     </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
+                    </li>
                 </ul>
                 </div>
             </div>
@@ -62,7 +67,7 @@
         <!--since it is similar to the homepage i can use that code -->
         <div class="row", style="padding:15px;padding-bottom:10px;">
             <div class="col-sm-3">
-                <a href="">
+                <a href="productcat1.php">
                     <img src="promo2.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
                 </a>
             </div>
