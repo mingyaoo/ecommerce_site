@@ -100,11 +100,11 @@ $stmt->execute();
 
 // ......................................................................................
 
-$name = "turtle neck layered crochet";
+$name = "Purple Single Plush Keychain";
 $price = "5.0";
 $description = "description details for one";
 $category = "soft toy";
-$itemimage = "Crich.jpeg";
+$itemimage = "promo2.jpg";
 $quantity = "3";
 // product default data1 in order to input into tables
 $stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
@@ -118,7 +118,7 @@ $stmt->bindParam(':quantity', $quantity);
 $stmt->execute();
 
 
-$name2 = "Butterfly silver Keychain";
+$name2 = "turtle neck layered crochet";
 $price2 = "6.0";
 $description2 = "description details for two";
 $category2 = "accessory";

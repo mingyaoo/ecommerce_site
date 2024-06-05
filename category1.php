@@ -70,6 +70,7 @@
                 <a href="productcat1.php">
                     <img src="promo2.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
                 </a>
+                <p style="padding-left:15px;"><b>Purple Single Plush Keychain</b></p> 
             </div>
             <div class="col-sm-3">
                 <a href="">

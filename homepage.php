@@ -104,7 +104,7 @@
                 <h1 style="padding-top:45px;">Promotional Products</h1>
             </div>
             <div class="col-sm-3">
-                <a href="">
+                <a href="productcat1.php">
                     <img src="promo2.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
                 </a>
             </div>

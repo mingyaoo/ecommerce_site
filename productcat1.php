@@ -61,24 +61,56 @@
             </div>
         </nav>
 
-        <h1 class="title" style="text-align: center;">
-            <?php
-                include_once ("connection.php");
-                $stmt = $conn->prepare("SELECT productname FROM tblproducts WHERE ProductID = 1" );
-                $stmt->execute();
-                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                    echo($row["productname"]);
-                }
-            ?>
-        </h1>
-        <h5 class = "subtitle" style="color:#C7C7C7;
-    text-align: center;">
-            <?php
-                include_once ("connection.php");
-                $stmt = $conn->prepare("SELECT category FROM tblproducts WHERE ProductID = 1" );
-                $stmt->execute();
-                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                    echo("part of category: " . $row["category"]);
-                }
-            ?>
+
+<!-- bootstrap to organise grids of 2 columns-->
+        <div class="row">
+            <div class="col-6" style="padding-top:40px">
+                section 1
+            </div>
+            
+            <div class="col-6" style="padding-top:40px">
+                <h1 style="text-align: left;">
+                    <?php
+                        include_once ("connection.php");
+                        $stmt = $conn->prepare("SELECT productname FROM tblproducts WHERE ProductID = 1" );
+                        $stmt->execute();
+                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                            echo($row["productname"]);
+                        }
+                    ?>
+                </h1>
+                <h4 style="text-align: left;">
+                    <?php
+                        include_once ("connection.php");
+                        $stmt = $conn->prepare("SELECT category FROM tblproducts WHERE ProductID = 1" );
+                        $stmt->execute();
+                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                            echo("part of category: " . $row["category"]);
+                        }
+                    ?>
+                </h4>
+                <div class="container" style="padding-bottom:300px;">
+                    <p class="productdesc">
+                        <?php
+                            include_once ("connection.php");
+                            $stmt = $conn->prepare("SELECT Description FROM tblproducts WHERE ProductID = 1" );
+                            $stmt->execute();
+                            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                echo($row["Description"]);
+                            }
+                        ?>
+                    </p>
+                </div>
+                <div class="text-center">
+                        <button  class="btn btn-secondary text btn-lg" value="buy now">
+                        buy now
+                        </button>
+                        <br>
+                        <br>
+                        <button  class="btn btn-primary btn-dark text btn-lg" value="cart">
+                        Add to Cart
+                        </button>
+                </div>
+            </div>
+        </div>
 
