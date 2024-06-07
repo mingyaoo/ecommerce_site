@@ -98,7 +98,7 @@ $stmt->bindParam(':role2', $type2);
 // linking all the data to table
 $stmt->execute();
 
-// ......................................................................................
+
 
 $name = "Purple Single Plush Keychain";
 $price = "5.0";
@@ -122,7 +122,7 @@ $name2 = "turtle neck layered crochet";
 $price2 = "6.0";
 $description2 = "description details for two";
 $category2 = "accessory";
-$itemimage2 = "keychain.jpeg";
+$itemimage2 = "keychain3.jpeg";
 $quantity2 = "2";
 // product default data1 in order to input into tables
 $stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:name2, :price2,:description2,:category2, :itemimage2, :quantity2)");
@@ -140,7 +140,7 @@ $name3 = "Colourful doughnut plushy";
 $price3 = "3.0";
 $description3 = "description details for three";
 $category3 = "soft toy";
-$itemimage3 = "plush.jpeg";
+$itemimage3 = "keychain1.jpeg";
 $quantity3 = "1";
 // product default data1 in order to input into tables
 $stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:name3, :price3, :description3, :category3, :itemimage3, :quantity3)");

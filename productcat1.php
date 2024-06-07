@@ -65,7 +65,15 @@
 <!-- bootstrap to organise grids of 2 columns-->
         <div class="row">
             <div class="col-6" style="padding-top:40px">
-                section 1
+                
+                <br>
+                <h3>Reviews</h3>
+                <p style="color:blue">______________________________________________________________________________</p>
+                <ul class="productdesc">
+                    <li>review 1</li>
+                    <li>review 2</li>
+                    <li>review 3</li>
+                </ul>
             </div>
             
             <div class="col-6" style="padding-top:40px">
@@ -113,4 +121,13 @@
                 </div>
             </div>
         </div>
+        <br>
+        
+
+        <!-- this is another box / container to act as a footer for the webpage-->
+        <div class="container-fluid", style="background-color: #3FD2C7;padding:35px;">
+            <h3>Ming Yao's Top Picks</h3>
+            <h3>Enjoy the website</h3>
+        </div>
+    </body>
 
