@@ -65,7 +65,7 @@
 <!-- bootstrap to organise grids of 2 columns-->
         <div class="row">
             <div class="col-6" style="padding-top:40px">
-                
+                <img src="" alt="product number 1">
                 <br>
                 <h3>Reviews</h3>
                 <p style="color:blue">______________________________________________________________________________</p>

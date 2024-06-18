@@ -105,7 +105,9 @@
             </div>
             <div class="col-sm-3">
                 <a href="productcat1.php">
-                    <img src="promo2.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+
+                <!--need to fix the images format-->
+                    <img src="images/'.%row["promo2.jpeg"].'" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
                 </a>
             </div>
             <div class="col-sm-3">
