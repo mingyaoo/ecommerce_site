@@ -26,5 +26,10 @@
 }
 
 .profile-container{
-    border-bottom: solid black 1px;
+    border-bottom: solid black 10px;
+    color:grey;
+}
+
+.greytext{
+    color:#C7C7C7
 }

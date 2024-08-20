@@ -115,9 +115,11 @@
                         </button>
                         <br>
                         <br>
-                        <button  class="btn btn-primary btn-dark text btn-lg" value="cart">
-                        Add to Cart
-                        </button>
+                        <form action="basketadd.php" method="post">
+                            <button  class="btn btn-primary btn-dark text btn-lg" value="1">
+                            Add to Cart
+                            </button>
+                        </form>
                 </div>
             </div>
         </div>
