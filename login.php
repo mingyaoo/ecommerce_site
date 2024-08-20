@@ -101,12 +101,21 @@
                     <button type="button" class="btn btn-dark">Logout</button>
                     <!--this will link me to a logout page in which unsets user binds-->
                 </a>
+                <p style="text-align:left; color:#C7C7C7">Sign into admin?</p>
+                <a href="adminportalmain.php">
+                    <button type="button" class="btn btn-dark">Admin Portal</button>
+                    <!--this will link me to a sign up for new users page-->
+                </a>
 
             </div>
         </div>
 
 </body>
 </html>
+
+<!-- 
+
+unncecesary sould delete
 
 
 <div class="col-6" style="padding-top:40px">
@@ -151,4 +160,4 @@
                         <button  class="btn btn-primary btn-dark text btn-lg" value="cart">
                         Add to Cart
                         </button>
-                </div>
+                </div> -->

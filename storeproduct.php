@@ -23,7 +23,7 @@
 
 
     ?>
-    <form action="homepage.php"  method = "post">
+    <form action="adminportalmain.php"  method = "post">
         <input type="submit" value="back to home">
     </form>
 

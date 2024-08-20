@@ -40,22 +40,22 @@
                 </form>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Favourites</a>
+                        <a class="nav-link" href="javascript:void(0)">Favourites</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Notifications</a>
+                        <a class="nav-link" href="javascript:void(0)">Notifications</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Profile</a>
+                        <a class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Cart</a>
+                        <a class="nav-link" href="javascript:void(0)">Cart</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="login.php">Sign In</a>
+                        <a class="nav-link" href="login.php">Sign In</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Logout</a>
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
                 </div>
