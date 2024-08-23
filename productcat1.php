@@ -116,7 +116,7 @@
                         <br>
                         <br>
                         <form action="basketadd.php" method="post">
-                            <button  class="btn btn-primary btn-dark text btn-lg" value="1">
+                            <button  class="btn btn-primary btn-dark text btn-lg" name="cart" value="1">
                             Add to Cart
                             </button>
                         </form>
