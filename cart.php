@@ -68,7 +68,17 @@
                     <h2>Items in your Basket</h2>
                     <div class="container" style="border-bottom: solid black 2px;">
                         <!-- item 1 -->
-                        input data for item 1
+                        <?php
+                            include_once ("connection.php");
+                            $stmt = $conn->prepare("SELECT forename FROM tblusers WHERE UserID = :loggedinid" );
+                            $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
+                            $stmt->execute();
+                            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                echo($row["ProductName"] . ":" . $row["Price"] . "x" );
+                            }
+                            // need to make it so that it uses innerjoin from tables. not sure how. need to use product id from tblbasketcontent and then output it according to tbl;prdoucts
+                        ?>
+                        
                     </div>
                     <div class="container" style="border-bottom: solid black 2px;">
                         <!-- item 2 -->

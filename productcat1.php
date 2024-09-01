@@ -119,11 +119,20 @@
                             <button  class="btn btn-primary btn-dark text btn-lg" name="cart" value="1">
                             Add to Cart
                             </button>
+                            <br><br>
+                            <label for="quantity">Quantity:</label>
+                            <select name="quantity" id="quantity">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+
                         </form>
                 </div>
             </div>
         </div>
         <br>
+        
         
 
         <!-- this is another box / container to act as a footer for the webpage-->
