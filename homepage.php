@@ -75,17 +75,30 @@
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="keychain1.jpg" alt="crochet-1" class="d-block w-100" height="500px" >
+
+                    <?php
+                            include_once('connection.php');
+                            echo ('<img src="pictures/chaincat1.jpg" class="d-block w-100" height="500px"><br>');
+                            // 
+                        ?>    
                     <div class="carousel-caption">
                         <h3>Colourful overview of keychains</h3>
                         <p>multiple keychains in one photo</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="keychain2.jpg" alt="" class="d-block w-100" height="500px">
+                    <?php
+                            include_once('connection.php');
+                            echo ('<img src="pictures/promo3.jpg" class="d-block w-100" height="500px"><br>');
+                        ?>   
+                    <!-- <img src="keychain2.jpg" alt="" class="d-block w-100" height="500px"> -->
                 </div>
                 <div class="carousel-item">
-                    <img src="keychain3.jpg" alt="" class="d-block w-100" height="500px">
+                <?php
+                            include_once('connection.php');
+                            echo ('<img src="pictures/keychain3.jpg" class="d-block w-100" height="500px"><br>');
+                        ?>   
+                    <!-- <img src="keychain3.jpg" alt="" class="d-block w-100" height="500px"> -->
                 </div>
             </div>
 
@@ -105,19 +118,48 @@
             </div>
             <div class="col-sm-3">
                 <a href="productcat1.php">
+                    <!-- this selects the ID from the table in order to find the image corresponding to that product -->
+                    <?php
+                        include_once('connection.php');
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 1");
+                        $stmt->execute();
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                            {
+                                echo($row["ProductName"]);
+                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
 
-                <!--need to fix the images format-->
-                    <img src="images/'.%row["promo2.jpeg"].'" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                            }
+                    ?>    
                 </a>
             </div>
             <div class="col-sm-3">
                 <a href="">
-                    <img src="promo3.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                    <?php
+                            include_once('connection.php');
+                            $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 2");
+                            $stmt->execute();
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                                {
+                                    echo($row["ProductName"]);
+                                    echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
+
+                                }
+                        ?>    
                 </a>           
             </div>
             <div class="col-sm-3">
                 <a href="">
-                    <img src="promo4.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <?php
+                        include_once('connection.php');
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 3");
+                        $stmt->execute();
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                            {
+                                echo($row["ProductName"]);
+                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
+
+                            }
+                    ?>    
                 </a>
             </div>
         </div>
