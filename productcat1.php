@@ -65,7 +65,16 @@
 <!-- bootstrap to organise grids of 2 columns-->
         <div class="row">
             <div class="col-6" style="padding-top:40px">
-                <img src="" alt="product number 1">
+                <?php
+                        include_once('connection.php');
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 3");
+                        $stmt->execute();
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                            {
+                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
+
+                            }
+                    ?> 
                 <br>
                 <h3>Reviews</h3>
                 <p style="color:blue">______________________________________________________________________________</p>

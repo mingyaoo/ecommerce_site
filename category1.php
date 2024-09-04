@@ -68,7 +68,16 @@
         <div class="row", style="padding:15px;padding-bottom:10px;">
             <div class="col-sm-3">
                 <a href="productcat1.php">
-                    <img src="promo2.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                <?php
+                        include_once('connection.php');
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 3");
+                        $stmt->execute();
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                            {
+                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
+
+                            }
+                    ?> 
                 </a>
                 <p style="padding-left:15px;"><b>Purple Single Plush Keychain</b></p> 
             </div>

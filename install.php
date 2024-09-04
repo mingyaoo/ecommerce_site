@@ -14,6 +14,7 @@ Surname VARCHAR(20) NOT NULL,
 Address VARCHAR(300) NOT NULL,
 Postcode VARCHAR(8) NOT NULL,
 PhoneNo INT(11) NOT NULL,
+Image VARCHAR(100) NOT NULL,
 Type TINYINT(1))");
 $stmt->execute();
 $stmt->closeCursor();
@@ -63,9 +64,11 @@ $surname = "smith";
 $address = "2 milton road, oundle";
 $postcode = "PE8 4AG";
 $phoneno = "04698546204";
-$type = "0";
+$type = "1";
+$image = "user1.jpg";
+
 // customer default data in order to input into tables
-$stmt = $conn->prepare("INSERT INTO TblUsers (UserID,Email,Password,Forename,Surname, Address, Postcode, PhoneNo, Type)VALUES (null,:email,:password,:forename, :surname, :address, :postcode, :phone, :role)");
+$stmt = $conn->prepare("INSERT INTO TblUsers (UserID,Email,Password,Forename,Surname, Address, Postcode, PhoneNo, Image, Type)VALUES (null,:email,:password,:forename, :surname, :address, :postcode, :phone, :image, :role)");
 $stmt->bindParam(':email', $email);
 $stmt->bindParam(':password', $hashed_password);
 $stmt->bindParam(':forename', $forename);
@@ -74,6 +77,8 @@ $stmt->bindParam(':address', $address);
 $stmt->bindParam(':postcode', $postcode);
 $stmt->bindParam(':phone', $phoneno);
 $stmt->bindParam(':role', $type);
+$stmt->bindParam(':image', $image);
+
 // linking all the data to table
 $stmt->execute();
 
@@ -84,7 +89,7 @@ $surname2 = "Jackel";
 $address2 = "2 Benefield road, oundle";
 $postcode2 = "PE8 4ET";
 $phoneno2 = "04396837291";
-$type2 = "1";
+$type2 = "0";
 // admin default data in order to input into tables
 $stmt = $conn->prepare("INSERT INTO TblUsers (UserID,Email,Password,Forename,Surname, Address, Postcode, PhoneNo, Type)VALUES (null,:email2,:password2,:forename2, :surname2, :address2, :postcode2, :phone2, :role2)");
 $stmt->bindParam(':email2', $email2);
@@ -117,6 +122,59 @@ $stmt->bindParam(':quantity', $quantity);
 // linking all the data to table
 $stmt->execute();
 
+
+$name = "Purple Single Plush Keychain";
+$price = "5.0";
+$description = "description details for one";
+$category = "soft toy";
+$itemimage = "promo2.jpg";
+$quantity = "3";
+// product default data1 in order to input into tables
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt->bindParam(':name', $name);
+$stmt->bindParam(':price', $price);
+$stmt->bindParam(':description', $description);
+$stmt->bindParam(':category', $category);
+$stmt->bindParam(':itemimage', $itemimage);
+$stmt->bindParam(':quantity', $quantity);
+// linking all the data to table
+$stmt->execute();
+
+
+$name = "turtle neck layered crochet";
+$price = "6.0";
+$description = "description details for two";
+$category = "accessory";
+$itemimage = "keychain3.jpg";
+$quantity = "3";
+// product default data1 in order to input into tables
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt->bindParam(':name', $name);
+$stmt->bindParam(':price', $price);
+$stmt->bindParam(':description', $description);
+$stmt->bindParam(':category', $category);
+$stmt->bindParam(':itemimage', $itemimage);
+$stmt->bindParam(':quantity', $quantity);
+// linking all the data to table
+$stmt->execute();
+
+
+$name = "colorful doughnut plushy";
+$price = "3.0";
+$description = "description details for three";
+$category = "soft toy";
+$itemimage = "keychain1.jpg";
+$quantity = "3";
+// product default data1 in order to input into tables
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt->bindParam(':name', $name);
+$stmt->bindParam(':price', $price);
+$stmt->bindParam(':description', $description);
+$stmt->bindParam(':category', $category);
+$stmt->bindParam(':itemimage', $itemimage);
+$stmt->bindParam(':quantity', $quantity);
+// linking all the data to table
+$stmt->execute();
 
 
 

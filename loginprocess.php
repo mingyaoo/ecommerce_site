@@ -18,7 +18,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
         if (!isset($_SESSION['backURL'])){
             $backURL= "/ecommerce_site/homepage.php"; 
         }else{
-            $backURL=$_SESSION['backURL'];
+            alert("password and username does not match / check adming portal");
+            $backURL= "/ecommerce_site/login.php";
         }
         unset($_SESSION['backURL']);
         header('Location: ' . $backURL);

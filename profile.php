@@ -68,8 +68,17 @@
             <div class="row">
                 <div class="col-sm-4">
                     <h3>Profile picture</h3>
-                    <!-- need to fix this to add the picture / not sure how yet -->
-                </div>
+                    <?php
+                            include_once('connection.php');
+                            $stmt = $conn->prepare("SELECT * FROM tblusers WHERE UserID = :loggedinid");
+                            $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
+                            $stmt->execute();
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                                {
+                                    echo ('<img src="profilepic/'.$row["Image"].'" class="img-thumbnail" height="80%" width="80%"><br>');
+
+                                }
+                        ?>                    </div>
                 <div class="col-sm-8 greytext">
                     <a href="#">edit Profile Picture</a>
                     <p>Must be .jpg, .gif or .png file smaller than 10 MB and at least 400 px by 400 px </p>

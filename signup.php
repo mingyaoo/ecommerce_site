@@ -89,6 +89,8 @@
                         <h6>PhoneNo:</h6>
                         <input type="text" name="phonenumber" class="inputlong"><br>
                         <br>
+                        Image: <input type="file" id="piccy" name="piccy" accept="image/*"><br>
+                        <br>
                         Role:<select name="role">
                                 <option value="Admin">Admin</option>
                                 <option value="User">User</option>

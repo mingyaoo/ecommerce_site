@@ -79,7 +79,7 @@
                     <?php
                             include_once('connection.php');
                             echo ('<img src="pictures/chaincat1.jpg" class="d-block w-100" height="500px"><br>');
-                            // 
+                            
                         ?>    
                     <div class="carousel-caption">
                         <h3>Colourful overview of keychains</h3>
@@ -96,7 +96,7 @@
                 <div class="carousel-item">
                 <?php
                             include_once('connection.php');
-                            echo ('<img src="pictures/keychain3.jpg" class="d-block w-100" height="500px"><br>');
+                            echo ('<img src="pictures/keychain2.jpg" class="d-block w-100" height="500px"><br>');
                         ?>   
                     <!-- <img src="keychain3.jpg" alt="" class="d-block w-100" height="500px"> -->
                 </div>
@@ -190,8 +190,11 @@
             <div class="row", style="padding:15px;padding-bottom:10px;">
             <div class="col-sm-3">
                 <a href ="category1.php">
-                    <img src="keychaincat1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                    <h4>keychain (single plush)</h4>
+                <?php
+                include_once('connection.php');
+                echo ('<img src="category/category1pic.jpg" class="d-block w-100" height="80%px" width="80%"><br>');
+                ?>                        
+                <h4>keychain (single plush)</h4>
                 </a>
             </div>
             <div class="col-sm-3">

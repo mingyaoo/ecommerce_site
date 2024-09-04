@@ -70,12 +70,13 @@
                         <!-- item 1 -->
                         <?php
                             include_once ("connection.php");
-                            $stmt = $conn->prepare("SELECT forename FROM tblusers WHERE UserID = :loggedinid" );
+                            $stmt = $conn->prepare("SELECT * FROM tblproducts INNER JOIN tblbasketcontent ON tblproducts.ProductID = tblbasketcontent.ProductID");
                             $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
                             $stmt->execute();
                             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                                echo($row["ProductName"] . ":" . $row["Price"] . "x" );
+                                echo($row["ProductName"] . ":" . $row["Price"] );
                             }
+                            // need to add quantity too ERROR ERROR
                             // need to make it so that it uses innerjoin from tables. not sure how. need to use product id from tblbasketcontent and then output it according to tbl;prdoucts
                         ?>
                         
