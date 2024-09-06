@@ -26,6 +26,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
         header('Location: loginadmin.php');
     }
 }
+header('Location: loginadmin.php');
 $conn=null;
 ?>
 
