@@ -108,7 +108,7 @@ $stmt->execute();
 $name = "Purple Single Plush Keychain";
 $price = "5.0";
 $description = "description details for one";
-$category = "soft toy";
+$category = "keychain";
 $itemimage = "promo2.jpg";
 $quantity = "3";
 // product default data1 in order to input into tables
@@ -123,11 +123,11 @@ $stmt->bindParam(':quantity', $quantity);
 $stmt->execute();
 
 
-$name = "Purple Single Plush Keychain";
+$name = "purple pink white keychain";
 $price = "5.0";
-$description = "description details for one";
-$category = "soft toy";
-$itemimage = "promo2.jpg";
+$description = "description details for 2";
+$category = "keychain";
+$itemimage = "keychain4.jpg";
 $quantity = "3";
 // product default data1 in order to input into tables
 $stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
@@ -143,7 +143,7 @@ $stmt->execute();
 
 $name = "turtle neck layered crochet";
 $price = "6.0";
-$description = "description details for two";
+$description = "description details for 3";
 $category = "accessory";
 $itemimage = "keychain3.jpg";
 $quantity = "3";
@@ -161,7 +161,24 @@ $stmt->execute();
 
 $name = "colorful doughnut plushy";
 $price = "3.0";
-$description = "description details for three";
+$description = "description details for 4";
+$category = "soft toy";
+$itemimage = "keychain1.jpg";
+$quantity = "3";
+// product default data1 in order to input into tables
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt->bindParam(':name', $name);
+$stmt->bindParam(':price', $price);
+$stmt->bindParam(':description', $description);
+$stmt->bindParam(':category', $category);
+$stmt->bindParam(':itemimage', $itemimage);
+$stmt->bindParam(':quantity', $quantity);
+// linking all the data to table
+$stmt->execute();
+
+$name = "colorful doughnut plushy";
+$price = "3.0";
+$description = "description details for 4";
 $category = "soft toy";
 $itemimage = "keychain1.jpg";
 $quantity = "3";

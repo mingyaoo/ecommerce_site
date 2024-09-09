@@ -62,54 +62,20 @@
             </div>
         </div>
 
+
+        
+        <div class="card-footer">
+                <p style="text-align:left; color:#C7C7C7">Back to user login?</p>
+                <a href="login.php">
+                    <button type="button" class="btn btn-dark">user login</button>
+                </a>
+                <p style="text-align:left; color:#C7C7C7">back to main website?</p>
+
+                <a href="homepage.php">
+                    <button type="button" class="btn btn-dark">main website</button>
+                </a>
+                
+            </div>
+
 </body>
 </html>
-
-<!-- 
-
-unncecesary sould delete
-
-
-<div class="col-6" style="padding-top:40px">
-                <h1 style="text-align: left;">
-                    <?php
-                        include_once ("connection.php");
-                        $stmt = $conn->prepare("SELECT productname FROM tblproducts WHERE ProductID = 1" );
-                        $stmt->execute();
-                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                            echo($row["productname"]);
-                        }
-                    ?>
-                </h1>
-                <h4 style="text-align: left;">
-                    <?php
-                        include_once ("connection.php");
-                        $stmt = $conn->prepare("SELECT category FROM tblproducts WHERE ProductID = 1" );
-                        $stmt->execute();
-                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                            echo("part of category: " . $row["category"]);
-                        }
-                    ?>
-                </h4>
-                <div class="container" style="padding-bottom:300px;">
-                    <p class="productdesc">
-                        <?php
-                            include_once ("connection.php");
-                            $stmt = $conn->prepare("SELECT Description FROM tblproducts WHERE ProductID = 1" );
-                            $stmt->execute();
-                            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                                echo($row["Description"]);
-                            }
-                        ?>
-                    </p>
-                </div>
-                <div class="text-center">
-                        <button  class="btn btn-secondary text btn-lg" value="buy now">
-                        buy now
-                        </button>
-                        <br>
-                        <br>
-                        <button  class="btn btn-primary btn-dark text btn-lg" value="cart">
-                        Add to Cart
-                        </button>
-                </div> -->

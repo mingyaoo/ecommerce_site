@@ -66,18 +66,18 @@
             <div class="col-sm-8">
                 <div class="container-fluid" style="padding-left:100px; padding-top:100px;">
                     <h2>Items in your Basket</h2>
-                    <div class="container" style="border-bottom: solid black 2px;">
+                    <div class="container" style="border-bottom: solid black 2px; font-size: 20px;">
                         <!-- item 1 -->
                         <?php
                             include_once ("connection.php");
-                            $stmt = $conn->prepare("SELECT tblproducts.ProductName as pn, tblproducts.Price as pp, tblbasketcontent.quantity as bq FROM tblproducts 
+                            $stmt = $conn->prepare("SELECT tblproducts.ProductName as pn, tblproducts.Price as pp FROM tblproducts 
                             INNER JOIN tblbasketcontent ON tblproducts.ProductID = tblbasketcontent.ProductID 
                             INNER JOIN tblbasket ON tblbasketcontent.OrderNo = tblbasket.OrderNo
                             WHERE tblbasket.UserID = :loggedinid");
                             $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
                             $stmt->execute();
                             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                                echo($row["pn"] . ":  $" . $row["pp"] . " x " . $row["bq"] );
+                                echo($row["pn"] . ":  $" . $row["pp"] );
                             }
                         ?>
                         
@@ -105,12 +105,37 @@
                             <b>Total:</b>
                         </div>
                         <div class="col-sm-4">
-                            0.00
-                    </div>
-                    </div>
+                        <?php
+                            include_once ("connection.php");
+                            function multiplynum($num1, $num2) {
+                                $result = $num1 * $num2;
+                                return $result;
+                            }
+                            $stmt = $conn->prepare("SELECT tblproducts.Price as pp, tblbasketcontent.quantity as bq FROM tblproducts 
+                            INNER JOIN tblbasketcontent ON tblproducts.ProductID = tblbasketcontent.ProductID 
+                            INNER JOIN tblbasket ON tblbasketcontent.OrderNo = tblbasket.OrderNo
+                            WHERE tblbasket.UserID = :loggedinid AND tblbasket.OrderNo = 1");
+                            $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
+                            $stmt->execute();
 
+                            // $sql = 'SELECT COUNT(*) as count FROM tblbasketcontent WHERE OrderNo = 1'
+                            // $newresult = $conn->query($sql);
+                            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                $product = multiplynum($row["pp"], $row["bq"]);
+                                echo($product);
+                            }
+                        ?>
+                        </div>
+                    </div>
                 </div>
-
+                <div class="text-center">
+                        <form action="checkout.php" method="post">
+                            <button  class="btn btn-primary btn-dark text btn-lg" name="checkout">
+                            checkout
+                            </button>
+                            <br><br>
+                        </form>
+                </div>
             </div>
         </div>
   
