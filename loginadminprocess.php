@@ -15,15 +15,16 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     if(password_verify($attempt,$hashed)){
         $_SESSION['name']=$row["Forename"];
         $_SESSION['loggedinid']=$row["UserID"];
+        $_SESSION['admin'] = "admin";
         if (!isset($_SESSION['backURL'])){
             $backURL= "/ecommerce_site/adminportalmain.php"; 
         }
         unset($_SESSION['backURL']);
-        header('Location: ' . $backURL);
     }else{
         header('Location: loginadmin.php');
     }
 }
+
 header('Location: ' . $backURL);
 $conn=null;
 ?>

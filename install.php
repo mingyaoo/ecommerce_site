@@ -176,11 +176,11 @@ $stmt->bindParam(':quantity', $quantity);
 // linking all the data to table
 $stmt->execute();
 
-$name = "colorful doughnut plushy";
+$name = "blue green keychain";
 $price = "3.0";
-$description = "description details for 4";
+$description = "description details for 5";
 $category = "soft toy";
-$itemimage = "keychain1.jpg";
+$itemimage = "promo5.jpg";
 $quantity = "3";
 // product default data1 in order to input into tables
 $stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
@@ -193,6 +193,39 @@ $stmt->bindParam(':quantity', $quantity);
 // linking all the data to table
 $stmt->execute();
 
+$name = "pink yellow keychain";
+$price = "3.0";
+$description = "description details for 6";
+$category = "soft toy";
+$itemimage = "promo6.jpg";
+$quantity = "3";
+// product default data1 in order to input into tables
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt->bindParam(':name', $name);
+$stmt->bindParam(':price', $price);
+$stmt->bindParam(':description', $description);
+$stmt->bindParam(':category', $category);
+$stmt->bindParam(':itemimage', $itemimage);
+$stmt->bindParam(':quantity', $quantity);
+// linking all the data to table
+$stmt->execute();
+
+$name = "double keychain";
+$price = "3.0";
+$description = "description details for 6";
+$category = "soft toy";
+$itemimage = "promo7.jpg";
+$quantity = "3";
+// product default data1 in order to input into tables
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt->bindParam(':name', $name);
+$stmt->bindParam(':price', $price);
+$stmt->bindParam(':description', $description);
+$stmt->bindParam(':category', $category);
+$stmt->bindParam(':itemimage', $itemimage);
+$stmt->bindParam(':quantity', $quantity);
+// linking all the data to table
+$stmt->execute();
 
 
 ?>

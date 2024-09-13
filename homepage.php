@@ -166,7 +166,6 @@
         <div class="row", style="padding:15px;padding-bottom:10px; background-color:#99DDFF;">
             <div class="col-sm-3">
                 <a href="">
-                <a href="">
                 <?php
                         include_once('connection.php');
                         $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 4");
@@ -179,22 +178,48 @@
                             }
                     ?>    
                 </a>
-                </a>
             </div>
             <div class="col-sm-3">
                 <a href="">
-                    <img src="promo6.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
+                <?php
+                        include_once('connection.php');
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 5");
+                        $stmt->execute();
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                            {
+                                echo($row["ProductName"]);
+                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
+
+                            }
+                    ?>                    </a>
             </div>
             <div class="col-sm-3">
                 <a href="">
-                    <img src="promo7.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
+                <?php
+                        include_once('connection.php');
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 6");
+                        $stmt->execute();
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                            {
+                                echo($row["ProductName"]);
+                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
+
+                            }
+                    ?>                    </a>
             </div>
             <div class="col-sm-3">
                 <a href="">
-                    <img src="promotionproduct1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
+                <?php
+                        include_once('connection.php');
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 7");
+                        $stmt->execute();
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                            {
+                                echo($row["ProductName"]);
+                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
+
+                            }
+                    ?>                    </a>
             </div>
         </div>
         <div class="container-fluid" style="background-color:#99DDFF;">
@@ -206,7 +231,7 @@
                 include_once('connection.php');
                 echo ('<img src="category/keychaincat1.jpg" class="d-block w-100" height="80%px" width="80%"><br>');
                 ?>                        
-                <h4>keychain (single plush)</h4>
+                <h4>keychain</h4>
                 </a>
             </div>
             <div class="col-sm-3">

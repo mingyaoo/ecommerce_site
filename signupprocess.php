@@ -19,7 +19,7 @@ $hashed_password = password_hash($_POST["pwuser"], PASSWORD_DEFAULT);
 
 
 //links all data to table
-$stmt = $conn->prepare("INSERT INTO tblUsers (UserID,Email,Password,Forename,Surname,Address,Postcode, PhoneNo ,Image, Type)VALUES (null,:email,:password,:forename,:surname,:address,:postcode, :phoneno, :Pic, :role)");
+$stmt = $conn->prepare("INSERT INTO tblUsers (UserID,Email,Password,Forename,Surname,Address,Postcode, PhoneNo ,Image, Type)VALUES (null,:email,:password,:forename,:surname,:address,:postcode, :phoneno, :Pic, 1)");
 $stmt->bindParam(':forename', $_POST["forename"]);
 $stmt->bindParam(':surname', $_POST["surname"]);
 $stmt->bindParam(':email', $_POST["emailuser"]);

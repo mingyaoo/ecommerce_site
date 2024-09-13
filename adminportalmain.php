@@ -12,11 +12,12 @@
     
 <?php
 session_start(); 
-if (!isset($_SESSION['email']))
+if (!isset($_SESSION['admin']))
 {   
     header("Location:loginadmin.php");
 }
 ?>
+<!-- ^leads to the signup page where you can also enter if you have an admin accesss -->
 
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container-fluid">
@@ -37,14 +38,62 @@ if (!isset($_SESSION['email']))
                 </ul>
             </div>
         </nav>
+        <!-- navbar -->
 
 
-        <div class="card-footer">
-                <p style="text-align:left; color:#C7C7C7">Back to users page?</p>
-                <a href="signup.php">
-                    <button type="button" class="btn btn-dark">user page</button>
-                    <!--this will link me to a sign up for new users page-->
-                </a>
+        <div style="padding-bottom:10px; padding-top:100px; background-color:#99DDFF;">
+           <h1>Welcome to the admin portal</h1>
         </div>
+
+        <div class="container" style = "padding-top:50px ; padding-bottom:100px;">
+            <h3>Functions for an admin:</h3>
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="storeproduct.php">
+                        <button type="button" class="btn btn-dark">store products</button>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="adminusers.php">
+                        <button type="button" class="btn btn-dark">add users</button>
+                    </a>
+                </div>
+                <div class="col-sm-3">.col-sm-3</div>
+                <div class="col-sm-3">.col-sm-3</div>
+            </div>
+        </div>
+
+        <!-- this is another box / container to act as a footer for the webpage-->
+        <footer>
+            <div class="container-fluid", style="background-color: #3FD2C7;padding:75px;">
+                <h3>section for contacts and about my company (address, shop, contact, etc)</h3>
+            
+            <!--adding a thank you message for user who had visited website-->
+            <h4>
+            <?php
+                include_once ("connection.php");
+                $stmt = $conn->prepare("SELECT forename FROM tblusers WHERE UserID = :loggedinid" );
+                $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
+                $stmt->execute();
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    echo("Thank you " . $row["forename"] . " for visiting our website");
+                }
+            ?>
+            </h4>
+            
+            
+
+            <div class="card-footer" style="padding:50px; font-size:25px">
+                    <p style="text-align:left; color:white">Back to users page?</p>
+                    <a href="homepage.php">
+                        <button type="button" class="btn btn-dark">user page</button>
+                        <!--this will link me to a sign up for new users page-->
+                    </a>
+            </div>
+            </div>
+        </footer>
+
+
+
 </body>
 </html>

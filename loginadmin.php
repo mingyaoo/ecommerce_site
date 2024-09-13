@@ -33,7 +33,7 @@
         </nav>
 
 
-        <div class="card">
+        <div class="card" style="padding-top:50px">
             <!--this produces a card where i can have a footer, header and body text in order to organise info-->
             <div class="card-header" style="text-align:center; padding:35px">
                 <h1>Sign In</h1>
