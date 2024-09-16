@@ -29,6 +29,8 @@ if (move_uploaded_file($_FILES["piccy"]["tmp_name"], $target_file)) {
         echo "Sorry, there was an error uploading your file.";
       }
 
+
+
 header('Location: storeproduct.php');
 
 ?>

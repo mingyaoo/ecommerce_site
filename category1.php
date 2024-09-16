@@ -65,60 +65,39 @@
             <h5 style="color:#C7C7C7;"> brief description (will write it) </h5>
         </div>
         <!--since it is similar to the homepage i can use that code -->
-        <div class="row", style="padding:15px;padding-bottom:10px;">
-            <div class="col-sm-3">
-                <a href="productcat1.php">
+        <form action='productcat1.php' method='post'>
+            <div class="row", style="padding:15px;padding-bottom:10px;">
+           
                 <?php
                         include_once('connection.php');
-                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 3");
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE Category = 'keychain'");
+
                         $stmt->execute();
+                        $nextrow=1;
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
                             {
-                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
+                                echo (" 
+                                <div class='col-sm-3'>
+                                    <input type='hidden' name='item_id' value='" . htmlspecialchars($row["ProductID"]) . "'>
+                                    <button type='submit' style='border: none; background: none;'>
+                                        <img src='images/".$row["ItemImage"]." 'class='img-thumbnail' height=450px width=300px><br>
+                                    </button>
+                                    <p style=padding-left:15px;><b>" .$row["ProductName"]."</b></p>
+                                    </div>
+                                    ");
+                                $nextrow+=1;
+                                if($nextrow==5){
+                                    echo("</div>");
+                                    echo("<div class='row', style=padding:15px;padding-bottom:10px>");
+                                    $nextrow=1;
+                                }
+
 
                             }
                     ?> 
-                </a>
-                <p style="padding-left:15px;"><b>Purple Single Plush Keychain</b></p> 
             </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo2.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo3.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>           
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo4.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
-            </div>
-        </div>
-        <div class="row", style="padding:15px;padding-bottom:10px;">
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo5.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo6.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo7.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promotionproduct1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
-            </div>
-        </div>
+        </form>            
+                
         <button type="button" class="btn btn-secondary">Show less</button>
 
 

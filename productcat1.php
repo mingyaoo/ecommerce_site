@@ -67,7 +67,8 @@
             <div class="col-6" style="padding-top:40px">
                 <?php
                         include_once('connection.php');
-                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 3");
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = :item_id");
+                        $stmt->bindParam(':item_id', $_POST["item_id"]);
                         $stmt->execute();
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
                             {
@@ -86,38 +87,28 @@
             </div>
             
             <div class="col-6" style="padding-top:40px">
-                <h1 style="text-align: left;">
-                    <?php
-                        include_once ("connection.php");
-                        $stmt = $conn->prepare("SELECT productname FROM tblproducts WHERE ProductID = 1" );
-                        $stmt->execute();
-                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                            echo($row["productname"]);
-                        }
-                    ?>
-                </h1>
-                <h4 style="text-align: left;">
-                    <?php
-                        include_once ("connection.php");
-                        $stmt = $conn->prepare("SELECT category FROM tblproducts WHERE ProductID = 1" );
-                        $stmt->execute();
-                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                            echo("part of category: " . $row["category"]);
-                        }
-                    ?>
-                </h4>
-                <div class="container" style="padding-bottom:300px;">
-                    <p class="productdesc">
-                        <?php
-                            include_once ("connection.php");
-                            $stmt = $conn->prepare("SELECT Description FROM tblproducts WHERE ProductID = 1" );
-                            $stmt->execute();
-                            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                                echo($row["Description"]);
-                            }
-                        ?>
-                    </p>
-                </div>
+                <?php
+                    include_once ("connection.php");
+                    $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = :item_id" );
+                    $stmt->bindParam(':item_id', $_POST["item_id"]);
+                    $stmt->execute();
+                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                        echo("
+                            <h1 style=text-align:left;>" .$row["ProductName"]. "</h1>
+                            <h4 style=text-align:left;>part of category:" .$row["Category"]. "</h4>
+                            <div class='container' style='padding-bottom:300px;'>
+                                <p class='productdesc'>" .$row["Description"]. "</p>
+                                <h6 style=text-align:centre;>Price of item:      $". $row["Price"]. "</h6>
+                            </div>
+                            ");
+
+                    }
+                ?>
+
+
+
+
+
                 <div class="text-center">
                         <button  class="btn btn-secondary text btn-lg" value="buy now">
                         buy now

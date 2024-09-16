@@ -144,7 +144,7 @@ $stmt->execute();
 $name = "turtle neck layered crochet";
 $price = "6.0";
 $description = "description details for 3";
-$category = "accessory";
+$category = "keychain";
 $itemimage = "keychain3.jpg";
 $quantity = "3";
 // product default data1 in order to input into tables
@@ -162,7 +162,7 @@ $stmt->execute();
 $name = "colorful doughnut plushy";
 $price = "3.0";
 $description = "description details for 4";
-$category = "soft toy";
+$category = "keychain";
 $itemimage = "keychain1.jpg";
 $quantity = "3";
 // product default data1 in order to input into tables
@@ -179,7 +179,7 @@ $stmt->execute();
 $name = "blue green keychain";
 $price = "3.0";
 $description = "description details for 5";
-$category = "soft toy";
+$category = "keychain";
 $itemimage = "promo5.jpg";
 $quantity = "3";
 // product default data1 in order to input into tables
@@ -196,7 +196,7 @@ $stmt->execute();
 $name = "pink yellow keychain";
 $price = "3.0";
 $description = "description details for 6";
-$category = "soft toy";
+$category = "keychain";
 $itemimage = "promo6.jpg";
 $quantity = "3";
 // product default data1 in order to input into tables
@@ -213,7 +213,7 @@ $stmt->execute();
 $name = "double keychain";
 $price = "3.0";
 $description = "description details for 6";
-$category = "soft toy";
+$category = "keychain";
 $itemimage = "promo7.jpg";
 $quantity = "3";
 // product default data1 in order to input into tables
