@@ -78,7 +78,7 @@
                             {
                                 echo (" 
                                 <div class='col-sm-3'>
-                                    <input type='hidden' name='item_id' value='" . htmlspecialchars($row["ProductID"]) . "'>
+                                    <input type='hidden' name='item_id' value='" . $row["ProductID"] . "'>
                                     <button type='submit' style='border: none; background: none;'>
                                         <img src='images/".$row["ItemImage"]." 'class='img-thumbnail' height=450px width=300px><br>
                                     </button>

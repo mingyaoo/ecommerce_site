@@ -62,30 +62,32 @@
             </div>
         </nav>
 
+       
+
         <div class="row">
             <div class="col-sm-8">
                 <div class="container-fluid" style="padding-left:100px; padding-top:100px;">
                     <h2>Items in your Basket</h2>
-                    <div class="container" style="border-bottom: solid black 2px; font-size: 20px;">
-                        <!-- item 1 -->
+
                         <?php
                             include_once ("connection.php");
-                            $stmt = $conn->prepare("SELECT tblproducts.ProductName as pn, tblproducts.Price as pp FROM tblproducts 
+                            $stmt = $conn->prepare("SELECT tblproducts.ProductName as pn, tblproducts.Price as pp 
+                            FROM tblproducts 
                             INNER JOIN tblbasketcontent ON tblproducts.ProductID = tblbasketcontent.ProductID 
                             INNER JOIN tblbasket ON tblbasketcontent.OrderNo = tblbasket.OrderNo
                             WHERE tblbasket.UserID = :loggedinid");
                             $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
                             $stmt->execute();
                             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                                echo($row["pn"] . ":  $" . $row["pp"] );
+                                echo(
+                                    "<div class='container' style=border-bottom: solid black 2px; font-size: 20px;>"
+                                    . $row["pn"] . ":  $" . $row["pp"] . 
+                                    "</div>");
                             }
                         ?>
-                        
-                    </div>
-                    <div class="container" style="border-bottom: solid black 2px;">
-                        <!-- item 2 -->
-                        input data for item 2
-                    </div>
+
+
+
                     <div class="container" style="border-bottom: solid black 2px;">
                         <h5>Additional details (functions to add) </h5>
                     </div>

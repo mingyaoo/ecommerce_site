@@ -66,21 +66,7 @@ if (!isset($_SESSION['admin']))
         <!-- this is another box / container to act as a footer for the webpage-->
         <footer>
             <div class="container-fluid", style="background-color: #3FD2C7;padding:75px;">
-                <h3>section for contacts and about my company (address, shop, contact, etc)</h3>
-            
-            <!--adding a thank you message for user who had visited website-->
-            <h4>
-            <?php
-                include_once ("connection.php");
-                $stmt = $conn->prepare("SELECT forename FROM tblusers WHERE UserID = :loggedinid" );
-                $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
-                $stmt->execute();
-                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                    echo("Thank you " . $row["forename"] . " for visiting our website");
-                }
-            ?>
-            </h4>
-            
+              
             
 
             <div class="card-footer" style="padding:50px; font-size:25px">

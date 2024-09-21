@@ -116,9 +116,23 @@
                         <br>
                         <br>
                         <form action="basketadd.php" method="post">
-                            <button  class="btn btn-primary btn-dark text btn-lg" name="cart" value="1">
-                            Add to Cart
-                            </button>
+                            <?php
+                                include_once ("connection.php");
+                                $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = :item_id" );
+                                $stmt->bindParam(':item_id', $_POST["item_id"]);
+                                $stmt->execute();
+                                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                    echo("
+                                        <button  class='btn btn-primary btn-dark text btn-lg' name='cart' value='". $row["ProductID"]. "'>
+                                        Add to Cart
+                                        </button>
+        
+                                        ");
+
+                                }
+                            ?>
+
+
                             <br><br>
                             <label for="quantity">Quantity:</label>
                             <select name="quantity" id="quantity">

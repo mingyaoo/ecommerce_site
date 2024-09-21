@@ -15,6 +15,26 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     if(password_verify($attempt,$hashed)){
         $_SESSION['name']=$row["Forename"];
         $_SESSION['loggedinid']=$row["UserID"];
+
+        //gets the current date NEEEEEEEEED TO FIX
+        $today = new DateTime();
+        $today1 = new DateTime();
+        $today1= $today1->format('Y-m-d');
+        $nextMonth = $today->modify('+1 month')->format('Y-m-d');
+        // modified the date
+        $stmt1 = $conn->prepare("INSERT INTO tblbasket (OrderNo,UserID,Date_bought, Delivery_date, Delivered, Paid)VALUES (null, :loggedinid, :datebought, :nextMonth, 0,0)");
+        $stmt1->bindParam(':loggedinid', $_SESSION['loggedinid']);
+        $stmt1->bindParam(':datebought', $today1);
+        $stmt1->bindParam(':nextMonth', $nextMonth);
+
+        //just need to change orderno
+        $stmt1->execute();
+        $conn=null;
+
+        $row1 = $conn->prepare("SELECT OrderNo FROM tblbasket WHERE UserID = :loggedinid");
+        $row1->bindParam(':loggedinid', $_SESSION['loggedinid']);
+        $_SESSION['orderno'] = $row1["OrderNo"];
+
         if (!isset($_SESSION['backURL'])){
             $backURL= "/ecommerce_site/homepage.php"; 
         }
@@ -25,6 +45,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     }
 }
 header('Location: ' . $backURL);
+
+
+
 $conn=null;
 ?>
 
