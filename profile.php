@@ -1,7 +1,5 @@
 
-<?php
-                session_start();
-                ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -61,6 +59,21 @@
                 </div>
             </div>
         </nav>
+
+        <?php
+            session_start(); 
+            if (!isset($_SESSION['loggedinid']))
+            {   
+                echo("
+                <div style='text-align:center'>
+                    <h2 style='padding-top:20px'>No user logged in</h2>
+                    <a href='login.php'> login page</a>
+                    <p class='greytext'> want to go to login page?</p>
+                </div>
+                ");
+            }
+        ?>
+
 
 
         <div class="container-fluid" style="padding:100px">

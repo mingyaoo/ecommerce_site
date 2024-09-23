@@ -112,147 +112,75 @@
         </div>
 
         <!--there will be multiple boxes for pictures and diagrams to showcase some products -->
-        <div class="row", style="padding:15px;padding-bottom:10px; background-color:#99DDFF;">
-            <div class="col-sm-3" style="text-align:center">
-                <h1 style="padding-top:45px;">Promotional Products</h1>
-            </div>
-            <div class="col-sm-3">
-                <a href="productcat1.php">
-                    <!-- this selects the ID from the table in order to find the image corresponding to that product -->
-                    <?php
+
+
+            <form action='productcat1.php' method='post'> 
+                <div class="row", style="padding:15px;padding-bottom:10px; background-color:#99DDFF;">
+                    <div class="col-sm-3" style="text-align:center">
+                        <h1 style="padding-top:45px;">Promotional Products</h1>
+                    </div>          
+                <?php
                         include_once('connection.php');
-                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 1");
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts");
+
                         $stmt->execute();
+                        $nextrow=1;
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
                             {
-                                echo($row["ProductName"]);
-                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
-
-                            }
-                    ?>    
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <?php
-                            include_once('connection.php');
-                            $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 2");
-                            $stmt->execute();
-                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-                                {
-                                    echo($row["ProductName"]);
-                                    echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
-
+                                echo (" 
+                                <div class='col-sm-3'>
+                                    <input type='hidden' name='item_id' value='" . $row["ProductID"] . "'>
+                                    <button type='submit' style='border: none; background: none;'>
+                                        <img src='images/".$row["ItemImage"]." 'class='img-thumbnail' height=450px width=300px><br>
+                                    </button>
+                                    <p style=padding-left:15px;><b>" .$row["ProductName"]."</b></p>
+                                    </div>
+                                    ");
+                                $nextrow+=1;
+                                if($nextrow==4){
+                                    echo("</div>");
+                                    echo("<div class='row', style='padding:15px;padding-bottom:10px; background-color:#99DDFF;'>");
+                                } elseif ($nextrow == 8) {
+                                    echo("</div>");
+                                    break;
                                 }
-                        ?>    
-                </a>           
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                <?php
-                        include_once('connection.php');
-                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 3");
-                        $stmt->execute();
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-                            {
-                                echo($row["ProductName"]);
-                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
+
 
                             }
-                    ?>    
-                </a>
-            </div>
-        </div>
-        <div class="row", style="padding:15px;padding-bottom:10px; background-color:#99DDFF;">
-            <div class="col-sm-3">
-                <a href="">
-                <?php
-                        include_once('connection.php');
-                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 4");
-                        $stmt->execute();
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-                            {
-                                echo($row["ProductName"]);
-                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
+                    ?> 
+            </form>            
 
-                            }
-                    ?>    
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                <?php
-                        include_once('connection.php');
-                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 5");
-                        $stmt->execute();
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-                            {
-                                echo($row["ProductName"]);
-                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
-
-                            }
-                    ?>                    </a>
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                <?php
-                        include_once('connection.php');
-                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 6");
-                        $stmt->execute();
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-                            {
-                                echo($row["ProductName"]);
-                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
-
-                            }
-                    ?>                    </a>
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                <?php
-                        include_once('connection.php');
-                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = 7");
-                        $stmt->execute();
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-                            {
-                                echo($row["ProductName"]);
-                                echo ('<img src="images/'.$row["ItemImage"].'" class="img-thumbnail" height="80%" width="80%"><br>');
-
-                            }
-                    ?>                    </a>
-            </div>
-        </div>
         <div class="container-fluid" style="background-color:#99DDFF;">
             <h2 style="text-align:center; padding-top:30px">Shop by Category</h2>
             <div class="row", style="padding:15px;padding-bottom:10px;">
-            <div class="col-sm-3">
-                <a href ="category1.php">
-                <?php
-                include_once('connection.php');
-                echo ('<img src="category/keychaincat1.jpg" class="d-block w-100" height="80%px" width="80%"><br>');
-                ?>                        
-                <h4>keychain</h4>
-                </a>
+                <div class="col-sm-3">
+                    <a href ="category1.php">
+                    <?php
+                    include_once('connection.php');
+                    echo ('<img src="category/keychaincat1.jpg" class="d-block w-100" height="80%px" width="80%"><br>');
+                    ?>                        
+                    <h4>keychain</h4>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    <a href ="category2.php">
+                        <img src="chaincat1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                        <h4>chains</h4>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    <a href ="category2.php">
+                        <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                        <h4>category-3</h4>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    <a href ="category2.php">
+                        <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                        <h4>category-4</h4>
+                    </a>
+                </div>
             </div>
-            <div class="col-sm-3">
-                <a href ="category2.php">
-                    <img src="chaincat1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                    <h4>chains</h4>
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <a href ="category2.php">
-                    <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                    <h4>category-3</h4>
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <a href ="category2.php">
-                    <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                    <h4>category-4</h4>
-                </a>
-            </div>
-        </div>
         </div>
 
         <!-- this is another box / container to act as a footer for the webpage-->
