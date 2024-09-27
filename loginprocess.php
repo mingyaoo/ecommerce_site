@@ -17,36 +17,35 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
         $_SESSION['loggedinid']=$row["UserID"];
         
 
-        // //gets the current date NEEEEEEEEED TO FIX
-        // $today = new DateTime();
-        // $today1 = new DateTime();
-        // $today1= $today1->format('Y-m-d');
-        // $nextMonth = $today->modify('+1 month')->format('Y-m-d');
-        // // modified the date
-        // $stmt1 = $conn->prepare("INSERT INTO tblbasket (OrderNo,UserID,Date_bought, Delivery_date, Delivered, Paid)VALUES (null, :loggedinid, :datebought, :nextMonth, 0,0)");
-        // $stmt1->bindParam(':loggedinid', $_SESSION['loggedinid']);
-        // $stmt1->bindParam(':datebought', $today1);
-        // $stmt1->bindParam(':nextMonth', $nextMonth);
+        //gets the current date NEEEEEEEEED TO FIX
+        $today = new DateTime();
+        $today1 = new DateTime();
+        $today1= $today1->format('Y-m-d');
+        $nextMonth = $today->modify('+1 month')->format('Y-m-d');
+        // modified the date
+        $stmt1 = $conn->prepare("INSERT INTO tblbasket (OrderNo,UserID,Date_bought, Delivery_date, Delivered, Paid)VALUES (null, :loggedinid, :datebought, :nextMonth, 0,0)");
+        $stmt1->bindParam(':loggedinid', $_SESSION['loggedinid']);
+        $stmt1->bindParam(':datebought', $today1);
+        $stmt1->bindParam(':nextMonth', $nextMonth);
 
-        // //just need to change orderno
-        // $stmt1->execute();
-        // $conn=null;
-
-        // $row1 = $conn->prepare("SELECT OrderNo FROM tblbasket WHERE UserID = :loggedinid");
-        // $row1->bindParam(':loggedinid', $_SESSION['loggedinid']);
-        // $_SESSION['orderno'] = $row1["OrderNo"];
-
+        $stmt1->execute();
+        $stmt = $conn->prepare("SELECT MAX(OrderNo) FROM tblbasket");
+        $stmt->execute();
+        $row = $stmt->fetch();
+        $_SESSION["orderno"]=$row[0];
+        
         if (!isset($_SESSION['backURL'])){
             $backURL= "/ecommerce_site/homepage.php"; 
         }
         unset($_SESSION['backURL']);
         header('Location: ' . $backURL);
-    }else{
+    }
+    else{
         header('Location: login.php');
     }
 }
 header('Location: ' . $backURL);
-
+print_r($_SESSION);
 
 
 $conn=null;

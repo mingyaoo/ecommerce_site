@@ -65,7 +65,7 @@
             <h5 style="color:#C7C7C7;"> brief description (will write it) </h5>
         </div>
         <!--since it is similar to the homepage i can use that code -->
-        <form action='productcat1.php' method='post'>
+ 
             <div class="row", style="padding:15px;padding-bottom:10px;">
            
                 <?php
@@ -78,11 +78,13 @@
                             {
                                 echo (" 
                                 <div class='col-sm-3'>
+                                <form action='productcat1.php' method='post'>
                                     <input type='hidden' name='item_id' value='" . $row["ProductID"] . "'>
                                     <button type='submit' style='border: none; background: none;'>
                                         <img src='images/".$row["ItemImage"]." 'class='img-thumbnail' height=450px width=300px><br>
                                     </button>
                                     <p style=padding-left:15px;><b>" .$row["ProductName"]."</b></p>
+                                    </form> 
                                     </div>
                                     ");
                                 $nextrow+=1;
@@ -96,7 +98,7 @@
                             }
                     ?> 
             </div>
-        </form>            
+               
                 
         <button type="button" class="btn btn-secondary">Show less</button>
 
