@@ -1,7 +1,4 @@
 
-<?php
-                session_start();
-                ?>
 <!DOCTYPE html>
 <html>
 
@@ -62,29 +59,71 @@
             </div>
         </nav>
 
+        <?php
+            session_start(); 
+            if (!isset($_SESSION['loggedinid']))
+            {   
+                echo("
+                <div class ='container' style='text-align:center'>
+                    <h2 style='padding-top:20px'>No user logged in</h2>
+                    <a href='login.php'> login page</a>
+                    <p class='greytext'> want to go to login page?</p>
+                </div>
+                ");
+            }
+        ?>
+
        
 
         <div class="row">
             <div class="col-sm-8">
                 <div class="container-fluid" style="padding-left:100px; padding-top:100px;">
                     <h2>Items in your Basket</h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <?php
+                                include_once ("connection.php");
+                                $stmt = $conn->prepare("SELECT tblproducts.ProductName as pn 
+                                FROM tblproducts 
+                                INNER JOIN tblbasketcontent ON tblproducts.ProductID = tblbasketcontent.ProductID 
+                                INNER JOIN tblbasket ON tblbasketcontent.OrderNo = tblbasket.OrderNo
+                                WHERE tblbasket.UserID = :loggedinid AND tblbasketcontent.OrderNo = :orderno");
+                                $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
+                                $stmt->bindParam(':orderno', $_SESSION['orderno']);
 
-                        <?php
-                            include_once ("connection.php");
-                            $stmt = $conn->prepare("SELECT tblproducts.ProductName as pn, tblproducts.Price as pp 
-                            FROM tblproducts 
-                            INNER JOIN tblbasketcontent ON tblproducts.ProductID = tblbasketcontent.ProductID 
-                            INNER JOIN tblbasket ON tblbasketcontent.OrderNo = tblbasket.OrderNo
-                            WHERE tblbasket.UserID = :loggedinid");
-                            $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
-                            $stmt->execute();
-                            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                                echo(
-                                    "<div class='container' style=border-bottom: solid black 2px; font-size: 20px;>"
-                                    . $row["pn"] . ":  $" . $row["pp"] . 
-                                    "</div>");
-                            }
-                        ?>
+                                $stmt->execute();
+                                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                    echo(
+                                        "<br> - ". $row["pn"]."<br>"
+);
+                                }
+                            ?>
+                        </div>
+                        <div class="col-sm-6">
+                            <?php
+                                include_once ("connection.php");
+                                $stmt = $conn->prepare("SELECT tblproducts.Price as pp 
+                                FROM tblproducts 
+                                INNER JOIN tblbasketcontent ON tblproducts.ProductID = tblbasketcontent.ProductID 
+                                INNER JOIN tblbasket ON tblbasketcontent.OrderNo = tblbasket.OrderNo
+                                WHERE tblbasket.UserID = :loggedinid AND tblbasketcontent.OrderNo = :orderno");
+                                $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
+                                $stmt->bindParam(':orderno', $_SESSION['orderno']);
+
+                                $stmt->execute();
+                                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                        echo(
+                                            "<br>"
+
+                                                .$row["pp"]. "$<br>"
+                                            );
+                                }
+                            ?>
+                        </div>
+                    </div>
+
+                    <br><br>
+                   
 
 
 
@@ -110,22 +149,27 @@
                         <?php
                             include_once ("connection.php");
                             function multiplynum($num1, $num2) {
-                                $result = $num1 * $num2;
+                                $result = (int)$num1 * (int)$num2;
                                 return $result;
                             }
-                            $stmt = $conn->prepare("SELECT tblproducts.Price as pp, tblbasketcontent.quantity as bq FROM tblproducts 
+                            $stmt = $conn->prepare("SELECT tblproducts.Price as pp, tblbasketcontent.quantity as bq 
+                            FROM tblproducts 
                             INNER JOIN tblbasketcontent ON tblproducts.ProductID = tblbasketcontent.ProductID 
                             INNER JOIN tblbasket ON tblbasketcontent.OrderNo = tblbasket.OrderNo
-                            WHERE tblbasket.UserID = :loggedinid AND tblbasket.OrderNo = 1");
+                            WHERE tblbasket.UserID = :loggedinid AND tblbasket.OrderNo = :orderno");
                             $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);
+                            $stmt->bindParam(':orderno', $_SESSION['orderno']);
+
                             $stmt->execute();
 
-                            // $sql = 'SELECT COUNT(*) as count FROM tblbasketcontent WHERE OrderNo = 1'
-                            // $newresult = $conn->query($sql);
+                            $total = 0;
                             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                                 $product = multiplynum($row["pp"], $row["bq"]);
-                                echo($product);
+                                
+                                $total = (int)$total + (int)$product;
                             }
+                            echo($total."$");
+
                         ?>
                         </div>
                     </div>

@@ -114,7 +114,6 @@
         <!--there will be multiple boxes for pictures and diagrams to showcase some products -->
 
 
-            <form action='productcat1.php' method='post'> 
                 <div class="row", style="padding:15px;padding-bottom:10px; background-color:#99DDFF;">
                     <div class="col-sm-3" style="text-align:center">
                         <h1 style="padding-top:45px;">Promotional Products</h1>
@@ -129,11 +128,14 @@
                             {
                                 echo (" 
                                 <div class='col-sm-3'>
+                                <form action='productcat1.php' method='post'> 
+
                                     <input type='hidden' name='item_id' value='" . $row["ProductID"] . "'>
                                     <button type='submit' style='border: none; background: none;'>
                                         <img src='images/".$row["ItemImage"]." 'class='img-thumbnail' height=450px width=300px><br>
                                     </button>
                                     <p style=padding-left:15px;><b>" .$row["ProductName"]."</b></p>
+                                    </form>            
                                     </div>
                                     ");
                                 $nextrow+=1;
@@ -148,7 +150,6 @@
 
                             }
                     ?> 
-            </form>            
 
         <div class="container-fluid" style="background-color:#99DDFF;">
             <h2 style="text-align:center; padding-top:30px">Shop by Category</h2>

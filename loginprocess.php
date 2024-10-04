@@ -17,7 +17,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
         $_SESSION['loggedinid']=$row["UserID"];
         
 
-        //gets the current date NEEEEEEEEED TO FIX
         $today = new DateTime();
         $today1 = new DateTime();
         $today1= $today1->format('Y-m-d');
