@@ -228,4 +228,22 @@ $stmt->bindParam(':quantity', $quantity);
 $stmt->execute();
 
 
+$name = "triple keychain";
+$price = "3.0";
+$description = "description details for 7";
+$category = "keychain";
+$itemimage = "promotionproduct1.jpg";
+$quantity = "3";
+// product default data1 in order to input into tables
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt->bindParam(':name', $name);
+$stmt->bindParam(':price', $price);
+$stmt->bindParam(':description', $description);
+$stmt->bindParam(':category', $category);
+$stmt->bindParam(':itemimage', $itemimage);
+$stmt->bindParam(':quantity', $quantity);
+// linking all the data to table
+$stmt->execute();
+
+
 ?>

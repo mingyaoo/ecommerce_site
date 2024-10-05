@@ -81,7 +81,7 @@
                                 <form action='productcat1.php' method='post'>
                                     <input type='hidden' name='item_id' value='" . $row["ProductID"] . "'>
                                     <button type='submit' style='border: none; background: none;'>
-                                        <img src='images/".$row["ItemImage"]." 'class='img-thumbnail' height=450px width=300px><br>
+                                        <img src='images/".$row["ItemImage"]." 'class='img-thumbnail' height='400px' width='300px'><br>
                                     </button>
                                     <p style=padding-left:15px;><b>" .$row["ProductName"]."</b></p>
                                     </form> 
