@@ -169,6 +169,7 @@
                                 $total = (int)$total + (int)$product;
                             }
                             echo($total."$");
+                            
 
                         ?>
                         </div>
@@ -177,7 +178,7 @@
                 <div class="text-center">
                         <form action="checkout.php" method="post">
                             <button  class="btn btn-primary btn-dark text btn-lg" name="checkout">
-                            checkout
+                            Proceed to payment
                             </button>
                             <br><br>
                         </form>

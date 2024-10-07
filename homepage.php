@@ -116,6 +116,8 @@
 
                 <div class="row", style="padding:15px;padding-bottom:10px; background-color:#99DDFF;">
                     <div class="col-sm-3" style="text-align:center">
+                    <br>
+                    <br>
                         <h1 style="padding-top:45px;">Promotional Products</h1>
                     </div>          
                 <?php
@@ -132,7 +134,7 @@
 
                                     <input type='hidden' name='item_id' value='" . $row["ProductID"] . "'>
                                     <button type='submit' style='border: none; background: none;'>
-                                        <img src='images/".$row["ItemImage"]." 'class='img-thumbnail' height=450px width=300px><br>
+                                        <img src='images/".$row["ItemImage"]." 'class='img-thumbnail prodpic'><br>
                                     </button>
                                     <p style=padding-left:15px;><b>" .$row["ProductName"]."</b></p>
                                     </form>            
