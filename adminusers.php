@@ -23,10 +23,10 @@
                     <a class="nav-link" href="storeproduct.php">store product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">store users</a>
+                    <a class="nav-link" href="adminusers.php">store users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
+                    <a class="nav-link" href="storeproduct.php"></a>
                 </li>
                 </ul>
             </div>

@@ -57,8 +57,28 @@
                 </div>
             </div>
         </nav>
+
+        <?php
+            session_start(); 
+            if (!isset($_SESSION['loggedinid']))
+            {   
+                echo("
+                <div class ='container' style='text-align:center'>
+                    <h2 style='padding-top:20px'>No user logged in</h2>
+                    <a href='login.php'> login page</a>
+                    <p class='greytext'> want to go to login page?</p>
+                </div>
+                ");
+            }
+        ?>
+
+
+        
+        <h1 style="text-align:center;">Check out for user</h1>
+
+
         <div class="container-fluid mt-3">
-            <form action = "" method = "post">
+            <form action = "checkoutprocess.php" method = "post">
             <div class="row">
                 <form action = "" method = "post">
                 <div class="col-sm-4">
@@ -86,7 +106,7 @@
                 </div>
 
 
-                <div class="col-sm-4">
+                <div class="col-sm-4" style="padding-top: 75px;">
                     <h3 style="text-align:center;">Enter your payment details</h3>
                     <div class="inputshort">
                         <h6>Cardholder's name:</h6>
@@ -105,7 +125,7 @@
                 </div>
 
 
-                <div class="col-sm-4">
+                <div class="col-sm-4" style="padding-top:175px">
                     <div class="row">
                         <div class="col-sm-8">
                             <b>Item(s) total:</b>

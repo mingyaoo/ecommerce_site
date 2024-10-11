@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="cssstyle1.css" rel="stylesheet">
+
         <!-- <link href="cssstyle1.css" rel="stylesheet"> -->
     </head>
 <body>
@@ -20,35 +22,51 @@
                     <a class="nav-link" href="storeproduct.php">store product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">store users</a>
+                    <a class="nav-link" href="adminusers.php">store users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
+                    <a class="nav-link" href="storeproduct.php"></a>
                 </li>
                 </ul>
             </div>
         </nav>
 
-    <div class="container" style="padding-top:100px">   
-        <h1> creating a new product:</h1>
-        <form action="storeproductcode.php" method = "post"  enctype="multipart/form-data">
-        product name:<input type="text" name="productname"><br>
-        price:<input type="real" name="price"><br>
-        description:<input type="text" name="descrip"><br>
-        quantity:<input type="integer" name="quant"><br>
-        category:<input type="text" name="category"><br>
-        Image: <input type="file" id="piccy" name="piccy" accept="image/*"><br>
-        <input type="submit" value="Add product">
-        </form>
+        
+        <div class="card">
+            <div class="card-body" style="padding:100px">
+                <h1> creating a new product:</h1>
+                <form action="storeproductcode.php" method = "post"  enctype="multipart/form-data">
+                    <h6>product name:</h6>
+                    <input type="text" name="productname" class="inputlong"><br>
+                    <br>
+                    <h6>price:</h6>
+                    <input type="real" name="price" class="inputlong"><br>
+                                <br>
+                    <h6>description:</h6>
+                    <input type="text" name="descrip" class="inputlong"><br>
+                                <br>
+                    <h6>quantity:</h6>
+                    <input type="integer" name="quant" class="inputlong"><br>
+                                <br>
+                    <h6>category:</h6>
+                    <input type="text" name="category" class="inputlong"><br>
+                                <br>
+                    <h6>Image:</h6>
+                    <input type="file" id="piccy" name="piccy" accept="image/*" class="inputlong"><br>
+                                <br>
+                    <button  class="btn btn-primary btn-dark text " value="Add Product">
+                            Add Product
+                    </button>            
+                </form>
+                <br>
+                <a href="adminportalmain.php">
+                        <button type="button" class="btn btn-dark">back to admin page</button>
+                        <!--this will link me back to the sign in page for users-->
+                    </a>
+            </div>
 </div>
         
-    <?php
 
-
-    ?>
-    <form action="adminportalmain.php"  method = "post">
-        <input type="submit" value="back to home">
-    </form>
 
     
 </body>
