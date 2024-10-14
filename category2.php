@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="cssstyle1.css" rel="stylesheet">
     </head>
     <body>
         <!-- this is the bootstrap code for the nav bar of all pages -->
@@ -37,22 +38,22 @@
                 </form>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Favourites</a>
+                        <a class="nav-link" href="javascript:void(0)">Favourites</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Notifications</a>
+                        <a class="nav-link" href="javascript:void(0)">Notifications</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Profile</a>
+                        <a class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Cart</a>
+                        <a class="nav-link" href="cart.php">Cart</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="login.php">Sign In</a>
+                        <a class="nav-link" href="login.php">Sign In</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Logout</a>
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
                 </div>
@@ -61,54 +62,45 @@
 
         <!--to start off the webpage, i will put a heading for the category in order to showcase what its about-->
         <div class="container-fluid" style="text-align:center;">
-            <h1>Keychain (single plush)</h1>
+            <h1>category 2</h1>
             <h5 style="color:#C7C7C7;"> brief description (will write it) </h5>
         </div>
         <!--since it is similar to the homepage i can use that code -->
-        <div class="row", style="padding:15px;padding-bottom:10px;">
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo2.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
+ 
+            <div class="row", style="padding:15px;padding-bottom:10px;">
+           
+                <?php
+                        include_once('connection.php');
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE Category = 'chain'");
+
+                        $stmt->execute();
+                        $nextrow=1;
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                            {
+                                echo (" 
+                                <div class='col-sm-3'>
+                                <form action='productcat1.php' method='post'>
+                                    <input type='hidden' name='item_id' value='" . $row["ProductID"] . "'>
+                                    <button type='submit' style='border: none; background: none;'>
+                                        <img src='images/".$row["ItemImage"]." 'class='img-thumbnail prodpic' ><br>
+                                    </button>
+                                    <p style=padding-left:15px;><b>" .$row["ProductName"]."</b></p>
+                                    </form> 
+                                    </div>
+                                    ");
+                                $nextrow+=1;
+                                if($nextrow==5){
+                                    echo("</div>");
+                                    echo("<div class='row', style=padding:15px;padding-bottom:10px>");
+                                    $nextrow=1;
+                                }
+
+
+                            }
+                    ?> 
             </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo2.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo3.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>           
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo4.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
-            </div>
-        </div>
-        <div class="row", style="padding:15px;padding-bottom:10px;">
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo5.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo6.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promo7.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <a href="">
-                    <img src="promotionproduct1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
-                </a>
-            </div>
-        </div>
+               
+                
         <button type="button" class="btn btn-secondary">Show less</button>
 
 

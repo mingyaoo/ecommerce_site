@@ -40,7 +40,7 @@
                 </form>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Favourites</a>
+                        <a class="nav-link" href="favourite.php">Favourites</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0)">Notifications</a>
@@ -167,19 +167,19 @@
                 </div>
                 <div class="col-sm-3">
                     <a href ="category2.php">
-                        <img src="chaincat1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                        <img src="chaincat1.jpg" class="img-thumbnail" alt="category 2" height="80%" width="80%">
                         <h4>chains</h4>
                     </a>
                 </div>
                 <div class="col-sm-3">
                     <a href ="category2.php">
-                        <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                        <img src="keychain1.jpg" class="img-thumbnail" alt="category 3" height="80%" width="80%">
                         <h4>category-3</h4>
                     </a>
                 </div>
                 <div class="col-sm-3">
                     <a href ="category2.php">
-                        <img src="keychain1.jpg" class="img-thumbnail" alt="promotional item 1" height="80%" width="80%">
+                        <img src="keychain1.jpg" class="img-thumbnail" alt="category 4" height="80%" width="80%">
                         <h4>category-4</h4>
                     </a>
                 </div>

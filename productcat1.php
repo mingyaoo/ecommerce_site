@@ -105,17 +105,36 @@
                     }
                 ?>
 
+                <div style="text-align: right; padding-right:50px;">
+                    <form action="favouriteprocess.php" method="post">
+                        <?php
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = :item_id" );
+                        $stmt->bindParam(':item_id', $_POST["item_id"]);
+                        $stmt->execute();
 
 
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                            {
+
+                                echo (" 
+                                <button type='submit' class='btn btn-secondary text btn-lg' name='productid' value='" .$row["ProductID"] ."'> favourites </button>
+                               
+                                    ");
+                            }
+
+                        ?>
+                    </form>
+                </div>
 
 
                 <div class="text-center">
-                        <button  class="btn btn-secondary text btn-lg" value="buy now">
+
+                    <button  class="btn btn-secondary text btn-lg" value="buy now">
                         buy now
-                        </button>
-                        <br>
-                        <br>
-                        <form action="basketadd.php" method="post">
+                    </button>
+                    <br>
+                    <br>
+                    <form action="basketadd.php" method="post">
                             <?php
                                 include_once ("connection.php");
                                 $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = :item_id" );
@@ -141,7 +160,7 @@
                                 <option>3</option>
                             </select>
 
-                        </form>
+                    </form>
                 </div>
             </div>
         </div>

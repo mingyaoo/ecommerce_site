@@ -54,6 +54,16 @@ Quantity INT(2) NOT NULL)");
 $stmt->execute();
 $stmt->closeCursor();
 
+
+// fifth table for favourites
+$stmt = $conn->prepare("DROP TABLE IF EXISTS TblFavourites;
+CREATE TABLE TblFavourites 
+(UserID INT(6) NOT NULL,
+ProductID INT(6) NOT NULL)");
+$stmt->execute();
+$stmt->closeCursor();
+
+
 // ...............................................................................................
 
 // inserting default data into the different tables
