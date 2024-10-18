@@ -67,7 +67,11 @@
 
             <?php
                 include_once ("connection.php");
-                $stmt = $conn->prepare("SELECT tblproducts.ProductName as pn, tblproducts.Category as cn, tblproducts.Description as dn 
+                $stmt = $conn->prepare("SELECT tblproducts.ProductName as pn, 
+                                tblproducts.Category as cn, 
+                                tblproducts.Description as dn,
+                                tblproducts.ProductID as pid,
+                                tblproducts.ItemImage as ii
                                 FROM tblproducts 
                                 INNER JOIN tblfavourites ON tblproducts.ProductID = tblfavourites.ProductID 
                                 WHERE tblfavourites.UserID = :loggedinid");
@@ -75,9 +79,26 @@
                                 $stmt->execute();
                                 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                                     echo("
-                                    <ul>
-                                        <li>" . $row["pn"] . " - " . $row["cn"] . " - " . $row["dn"] . "</li>
-                                    </ul>
+                                    <div class='container-fluid'>
+                                        <div class='row'>
+                                            <div class='col-sm-4'>
+                                                <form action='productcat1.php' method='post'>
+                                                    <input type='hidden' name='item_id' value='" . $row["pid"] . "'>
+                                                    <button type='submit' style='border: none; background: none;'>
+                                                        <img src='images/".$row["ii"]." 'class='img-thumbnail prodpic' ><br>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div class='col-sm-8' style='padding-top:25px'>
+                                                <h3>" . $row["pn"] . "</h3>
+                                                <p> category: " . $row["cn"] . "</p>
+                                                <p> description: " . $row["dn"] . "</li>
+                                                <form action='deletefavourite.php' method='post'>
+                                                    <button type='submit' class='btn btn-secondary text btn-lg' name='productid' value='" .$row["pid"] ."'> Remove </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                     ");
                                 }
                             ?>
