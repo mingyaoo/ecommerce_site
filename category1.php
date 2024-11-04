@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+<?php
+                session_start();
+                ?>
 <html>
     
 
@@ -26,9 +30,23 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="categories.php">Categories</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="category1.php">keychain (single plush)</a></li>
-                            <li><a class="dropdown-item" href="category2.php">chains</a></li>
-                            <li><a class="dropdown-item" href="category3.php">category-3</a></li>
+                            <?php
+                                include_once("connection.php");
+                                $stmt = $conn->prepare("SELECT * FROM tblcategory");
+                                $stmt->execute();
+                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                                {
+                                echo (" 
+                                <form action='category1.php' method='post'>
+                                    <input type='hidden' name='cat_id' value='" . $row["CategoryID"] . "'>
+                                    
+                                    <li><a class='dropdown-item'>
+                                    <button type='submit' style='border: none; background: none;'>
+                                    " . $row["Category"]. "</button></a></li>
+                                    </form> 
+                                    ");
+                            }
+                            ?>
                         </ul>
                     </li>
                 </ul>
@@ -38,7 +56,7 @@
                 </form>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Favourites</a>
+                        <a class="nav-link" href="favourite.php">Favourites</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0)">Notifications</a>
@@ -59,19 +77,31 @@
                 </div>
             </div>
         </nav>
+                
+        <?php 
+        include_once('connection.php');
+        $stmt = $conn->prepare("SELECT * FROM tblcategory WHERE CategoryID = :cat_id");
+        $stmt->bindParam(':cat_id', $_POST["cat_id"]);
+        $stmt->execute();
 
-        <!--to start off the webpage, i will put a heading for the category in order to showcase what its about-->
-        <div class="container-fluid" style="text-align:center;">
-            <h1>Keychain (single plush)</h1>
-            <h5 style="color:#C7C7C7;"> brief description (will write it) </h5>
-        </div>
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+        {
+            echo("
+            <div class='container-fluid' style='text-align:center;'>
+                <h1>" . $row["Category"]. "</h1>
+            </div>
+            ");
+        }
+        ?>
+
         <!--since it is similar to the homepage i can use that code -->
  
             <div class="row", style="padding:15px;padding-bottom:10px;">
            
                 <?php
                         include_once('connection.php');
-                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE Category = 'keychain'");
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE CategoryID = :cat_id");
+                        $stmt->bindParam(':cat_id', $_POST["cat_id"]);
 
                         $stmt->execute();
                         $nextrow=1;

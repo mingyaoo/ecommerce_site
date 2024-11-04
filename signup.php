@@ -1,5 +1,9 @@
 
 <!DOCTYPE html>
+
+<?php
+                session_start();
+                ?>
 <html>
 <head>
         <title>Sign In Page</title>  
@@ -26,9 +30,23 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="categories.php">Categories</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="category1.php">keychain (single plush)</a></li>
-                            <li><a class="dropdown-item" href="category2.php">chains</a></li>
-                            <li><a class="dropdown-item" href="category3.php">category-3</a></li>
+                            <?php
+                                include_once("connection.php");
+                                $stmt = $conn->prepare("SELECT * FROM tblcategory");
+                                $stmt->execute();
+                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                                {
+                                echo (" 
+                                <form action='category1.php' method='post'>
+                                    <input type='hidden' name='cat_id' value='" . $row["CategoryID"] . "'>
+                                    
+                                    <li><a class='dropdown-item'>
+                                    <button type='submit' style='border: none; background: none;'>
+                                    " . $row["Category"]. "</button></a></li>
+                                    </form> 
+                                    ");
+                            }
+                            ?>
                         </ul>
                     </li>
                 </ul>
@@ -38,7 +56,7 @@
                 </form>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Favourites</a>
+                        <a class="nav-link" href="favourite.php">Favourites</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0)">Notifications</a>
@@ -59,6 +77,7 @@
                 </div>
             </div>
         </nav>
+                
 
 
         <div class="card">

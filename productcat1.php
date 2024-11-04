@@ -27,9 +27,23 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="categories.php">Categories</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="category1.php">keychain (single plush)</a></li>
-                            <li><a class="dropdown-item" href="category2.php">chains</a></li>
-                            <li><a class="dropdown-item" href="category3.php">category-3</a></li>
+                            <?php
+                                include_once("connection.php");
+                                $stmt = $conn->prepare("SELECT * FROM tblcategory");
+                                $stmt->execute();
+                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                                {
+                                echo (" 
+                                <form action='category1.php' method='post'>
+                                    <input type='hidden' name='cat_id' value='" . $row["CategoryID"] . "'>
+                                    
+                                    <li><a class='dropdown-item'>
+                                    <button type='submit' style='border: none; background: none;'>
+                                    " . $row["Category"]. "</button></a></li>
+                                    </form> 
+                                    ");
+                            }
+                            ?>
                         </ul>
                     </li>
                 </ul>
@@ -39,7 +53,7 @@
                 </form>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Favourites</a>
+                        <a class="nav-link" href="favourite.php">Favourites</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0)">Notifications</a>
@@ -60,6 +74,7 @@
                 </div>
             </div>
         </nav>
+                
 
 
 <!-- bootstrap to organise grids of 2 columns-->
@@ -95,7 +110,6 @@
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                         echo("
                             <h1 style=text-align:left;>" .$row["ProductName"]. "</h1>
-                            <h4 style=text-align:left;>part of category:" .$row["Category"]. "</h4>
                             <div class='container' style='padding-bottom:300px;'>
                                 <p class='productdesc'>" .$row["Description"]. "</p>
                                 <h6 style=text-align:centre;>Price of item:      $". $row["Price"]. "</h6>

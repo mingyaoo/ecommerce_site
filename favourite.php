@@ -28,9 +28,23 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="categories.php">Categories</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="category1.php">keychain (single plush)</a></li>
-                            <li><a class="dropdown-item" href="category2.php">chains</a></li>
-                            <li><a class="dropdown-item" href="category3.php">category-3</a></li>
+                            <?php
+                                include_once("connection.php");
+                                $stmt = $conn->prepare("SELECT * FROM tblcategory");
+                                $stmt->execute();
+                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                                {
+                                echo (" 
+                                <form action='category1.php' method='post'>
+                                    <input type='hidden' name='cat_id' value='" . $row["CategoryID"] . "'>
+                                    
+                                    <li><a class='dropdown-item'>
+                                    <button type='submit' style='border: none; background: none;'>
+                                    " . $row["Category"]. "</button></a></li>
+                                    </form> 
+                                    ");
+                            }
+                            ?>
                         </ul>
                     </li>
                 </ul>
@@ -61,6 +75,7 @@
                 </div>
             </div>
         </nav>
+                
 
         <div class="container" style="padding:100px">
             <h1>Favourite Items</h1>
@@ -68,7 +83,6 @@
             <?php
                 include_once ("connection.php");
                 $stmt = $conn->prepare("SELECT tblproducts.ProductName as pn, 
-                                tblproducts.Category as cn, 
                                 tblproducts.Description as dn,
                                 tblproducts.ProductID as pid,
                                 tblproducts.ItemImage as ii
@@ -91,7 +105,6 @@
                                             </div>
                                             <div class='col-sm-8' style='padding-top:25px'>
                                                 <h3>" . $row["pn"] . "</h3>
-                                                <p> category: " . $row["cn"] . "</p>
                                                 <p> description: " . $row["dn"] . "</li>
                                                 <form action='deletefavourite.php' method='post'>
                                                     <button type='submit' class='btn btn-secondary text btn-lg' name='productid' value='" .$row["pid"] ."'> Remove </button>

@@ -28,9 +28,23 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="categories.php">Categories</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="category1.php">keychain (single plush)</a></li>
-                            <li><a class="dropdown-item" href="category2.php">chains</a></li>
-                            <li><a class="dropdown-item" href="category3.php">category-3</a></li>
+                            <?php
+                                include_once("connection.php");
+                                $stmt = $conn->prepare("SELECT * FROM tblcategory");
+                                $stmt->execute();
+                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                                {
+                                echo (" 
+                                <form action='category1.php' method='post'>
+                                    <input type='hidden' name='cat_id' value='" . $row["CategoryID"] . "'>
+                                    
+                                    <li><a class='dropdown-item'>
+                                    <button type='submit' style='border: none; background: none;'>
+                                    " . $row["Category"]. "</button></a></li>
+                                    </form> 
+                                    ");
+                            }
+                            ?>
                         </ul>
                     </li>
                 </ul>
@@ -156,33 +170,35 @@
         <div class="container-fluid" style="background-color:#99DDFF;">
             <h2 style="text-align:center; padding-top:30px">Shop by Category</h2>
             <div class="row", style="padding:15px;padding-bottom:10px;">
-                <div class="col-sm-3">
-                    <a href ="category1.php">
-                    <?php
-                    include_once('connection.php');
-                    echo ('<img src="category/keychaincat1.jpg" class="d-block w-100" height="80%px" width="80%"><br>');
-                    ?>                        
-                    <h4>keychain</h4>
-                    </a>
-                </div>
-                <div class="col-sm-3">
-                    <a href ="category2.php">
-                        <img src="chaincat1.jpg" class="img-thumbnail" alt="category 2" height="80%" width="80%">
-                        <h4>chains</h4>
-                    </a>
-                </div>
-                <div class="col-sm-3">
-                    <a href ="category2.php">
-                        <img src="keychain1.jpg" class="img-thumbnail" alt="category 3" height="80%" width="80%">
-                        <h4>category-3</h4>
-                    </a>
-                </div>
-                <div class="col-sm-3">
-                    <a href ="category2.php">
-                        <img src="keychain1.jpg" class="img-thumbnail" alt="category 4" height="80%" width="80%">
-                        <h4>category-4</h4>
-                    </a>
-                </div>
+            <?php
+                        include_once('connection.php');
+                        $stmt = $conn->prepare("SELECT * FROM tblcategory");
+
+                        $stmt->execute();
+                        $nextrow=1;
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                            {
+                                echo (" 
+                                <div class='col-sm-3'>
+                                <form action='category1.php' method='post'>
+                                    <input type='hidden' name='cat_id' value='" . $row["CategoryID"] . "'>
+                                    <button type='submit' style='border: none; background: none;'>
+                                        <img src='category/".$row["ItemImage"]." 'class='img-thumbnail prodpic' ><br>
+                                    </button>
+                                    <p style=padding-left:15px;><b>" .$row["Category"]."</b></p>
+                                    </form> 
+                                    </div>
+                                    ");
+                                $nextrow+=1;
+                                if($nextrow==5){
+                                    echo("</div>");
+                                    echo("<div class='row', style=padding:15px;padding-bottom:10px>");
+                                    $nextrow=1;
+                                }
+
+
+                            }
+                    ?> 
             </div>
         </div>
 
