@@ -7,7 +7,7 @@ array_map("htmlspecialchars", $_POST);
 print_r($_FILES);
 
 
-$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,Category, ItemImage, Quantity)VALUES (null,:productn,:price,:description,:category,:Pic,:quantity)");
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity)VALUES (null,:productn,:price,:description,:category,:Pic,:quantity)");
 
 $stmt->bindParam(':productn', $_POST["productname"]);
 $stmt->bindParam(':price', $_POST["price"]);

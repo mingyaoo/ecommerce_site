@@ -75,6 +75,19 @@
                 </div>
             </div>
         </nav>
+
+        <?php
+            if (!isset($_SESSION['loggedinid']))
+            {   
+                echo("
+                <div class ='container' style='text-align:center'>
+                    <h2 style='padding-top:20px'>No user logged in</h2>
+                    <a href='login.php'> login page</a>
+                    <p class='greytext'> want to go to login page?</p>
+                </div>
+                ");
+            }
+        ?>
                 
 
         <div class="container" style="padding:100px">

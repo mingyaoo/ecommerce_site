@@ -97,7 +97,6 @@
         <!--since it is similar to the homepage i can use that code -->
  
             <div class="row", style="padding:15px;padding-bottom:10px;">
-           
                 <?php
                         include_once('connection.php');
                         $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE CategoryID = :cat_id");
@@ -124,8 +123,6 @@
                                     echo("<div class='row', style=padding:15px;padding-bottom:10px>");
                                     $nextrow=1;
                                 }
-
-
                             }
                     ?> 
             </div>

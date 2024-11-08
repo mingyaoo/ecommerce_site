@@ -50,8 +50,23 @@
                     <input type="integer" name="quant" class="inputlong"><br>
                                 <br>
                     <h6>category:</h6>
-                    <input type="text" name="category" class="inputlong"><br>
-                                <br>
+                    <select name="category">
+                        <?php
+                            include_once("connection.php");                   
+                            $stmt = $conn->prepare("SELECT * FROM TblCategory ORDER BY Category ASC");
+                            $stmt->execute();
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                            {
+                                echo ("
+                                    <option value='". $row["CategoryID"]. "'>". $row["Category"]. "</option>
+                                ");
+                            }
+                        ?>
+                    </select>
+
+
+
+
                     <h6>Image:</h6>
                     <input type="file" id="piccy" name="piccy" accept="image/*" class="inputlong"><br>
                                 <br>

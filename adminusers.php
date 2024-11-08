@@ -35,10 +35,8 @@
 
         <div class="card">
             <!--this produces a card where i can have a footer, header and body text in order to organise info-->
-            <div class="card-header" style="text-align:center; padding:35px">
+            <div class="card-body" style="padding:100px">
                 <h1>add users</h1>
-            </div>
-            <div class="card-body inputlong">
                 <form action="adminusersprocess.php" method="post">
                     <!--creates a form in which im able to send information to my php process page-->
                         <h6>Email:</h6>
