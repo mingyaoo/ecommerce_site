@@ -35,6 +35,12 @@ if (!isset($_SESSION['admin']))
                 <li class="nav-item">
                     <a class="nav-link" href="storecategory.php">create category</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profileadmin.php">view admin profile</a>
+                </li>
                 </ul>
             </div>
         </nav>
@@ -63,7 +69,11 @@ if (!isset($_SESSION['admin']))
                         <button type="button" class="btn btn-dark">create category</button>
                     </a>
                 </div>
-                <div class="col-sm-3">.col-sm-3</div>
+                <div class="col-sm-3">
+                    <a href="profileadmin.php">
+                        <button type="button" class="btn btn-dark">view admin profile</button>
+                    </a>
+                </div>
             </div>
         </div>
 

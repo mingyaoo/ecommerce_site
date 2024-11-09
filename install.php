@@ -87,7 +87,16 @@ $stmt->execute();
 
 
 $catname = "chains";
-$itemimage = "keychaincat1.jpg";
+$itemimage = "category3.jpg";
+$stmt = $conn->prepare("INSERT INTO TblCategory (CategoryID,Category,ItemImage)VALUES (null,:name, :itemimage)");
+$stmt->bindParam(':name', $catname);
+$stmt->bindParam(':itemimage', $itemimage);
+// linking all the data to table
+$stmt->execute();
+
+
+$catname = "rocks";
+$itemimage = "category2.jpg";
 $stmt = $conn->prepare("INSERT INTO TblCategory (CategoryID,Category,ItemImage)VALUES (null,:name, :itemimage)");
 $stmt->bindParam(':name', $catname);
 $stmt->bindParam(':itemimage', $itemimage);
@@ -96,13 +105,12 @@ $stmt->execute();
 
 
 $catname = "bag";
-$itemimage = "keychaincat1.jpg";
+$itemimage = "category4.jpg";
 $stmt = $conn->prepare("INSERT INTO TblCategory (CategoryID,Category,ItemImage)VALUES (null,:name, :itemimage)");
 $stmt->bindParam(':name', $catname);
 $stmt->bindParam(':itemimage', $itemimage);
 // linking all the data to table
 $stmt->execute();
-
 
 
 $email = "example@example.com";

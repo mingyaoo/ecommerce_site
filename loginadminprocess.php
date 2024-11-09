@@ -14,7 +14,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     $attempt= $_POST['pw'];
     if(password_verify($attempt,$hashed)){
         $_SESSION['name']=$row["Forename"];
-        $_SESSION['loggedinid']=$row["UserID"];
+        $_SESSION['loggedinidadmin']=$row["UserID"];
         $_SESSION['admin'] = "admin";
         if (!isset($_SESSION['backURL'])){
             $backURL= "/ecommerce_site/adminportalmain.php"; 
