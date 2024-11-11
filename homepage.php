@@ -136,7 +136,7 @@
                     </div>          
                 <?php
                         include_once('connection.php');
-                        $stmt = $conn->prepare("SELECT * FROM tblproducts");
+                        $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE promo = 1");
 
                         $stmt->execute();
                         $nextrow=1;

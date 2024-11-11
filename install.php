@@ -28,7 +28,8 @@ Price INT(10) NOT NULL,
 Description VARCHAR(300) NOT NULL,
 CategoryID INT(6) NOT NULL,
 ItemImage VARCHAR(100) NOT NULL,
-Quantity INT(6))");
+Quantity INT(6),
+Promo INT(2))");
 $stmt->execute();
 $stmt->closeCursor();
 
@@ -72,6 +73,8 @@ Category VARCHAR(100) NOT NULL,
 ItemImage VARCHAR(100) NOT NULL)");
 $stmt->execute();
 $stmt->closeCursor();
+
+
 
 // ...............................................................................................
 
@@ -146,8 +149,10 @@ $address2 = "2 Benefield road, oundle";
 $postcode2 = "PE8 4ET";
 $phoneno2 = "04396837291";
 $type2 = "0";
+$image = "user1.jpg";
+
 // admin default data in order to input into tables
-$stmt = $conn->prepare("INSERT INTO TblUsers (UserID,Email,Password,Forename,Surname, Address, Postcode, PhoneNo, Type)VALUES (null,:email2,:password2,:forename2, :surname2, :address2, :postcode2, :phone2, :role2)");
+$stmt = $conn->prepare("INSERT INTO TblUsers (UserID,Email,Password,Forename,Surname, Address, Postcode, PhoneNo, Image, Type)VALUES (null,:email2,:password2,:forename2, :surname2, :address2, :postcode2, :phone2, :image, :role2)");
 $stmt->bindParam(':email2', $email2);
 $stmt->bindParam(':password2', $hashed_password2);
 $stmt->bindParam(':forename2', $forename2);
@@ -156,6 +161,8 @@ $stmt->bindParam(':address2', $address2);
 $stmt->bindParam(':postcode2', $postcode2);
 $stmt->bindParam(':phone2', $phoneno2);
 $stmt->bindParam(':role2', $type2);
+$stmt->bindParam(':image', $image);
+
 // linking all the data to table
 $stmt->execute();
 
@@ -167,14 +174,16 @@ $description = "description details for one";
 $category = "1";
 $itemimage = "promo2.jpg";
 $quantity = "3";
+$promo = "1";
 // product default data1 in order to input into tables
-$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity, Promo)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity, :promo)");
 $stmt->bindParam(':name', $name);
 $stmt->bindParam(':price', $price);
 $stmt->bindParam(':description', $description);
 $stmt->bindParam(':category', $category);
 $stmt->bindParam(':itemimage', $itemimage);
 $stmt->bindParam(':quantity', $quantity);
+$stmt->bindParam(':promo', $promo);
 // linking all the data to table
 $stmt->execute();
 
@@ -185,14 +194,17 @@ $description = "description details for 2";
 $category = "1";
 $itemimage = "keychain4.jpg";
 $quantity = "3";
+$promo = "1";
+
 // product default data1 in order to input into tables
-$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity, Promo)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity, :promo)");
 $stmt->bindParam(':name', $name);
 $stmt->bindParam(':price', $price);
 $stmt->bindParam(':description', $description);
 $stmt->bindParam(':category', $category);
 $stmt->bindParam(':itemimage', $itemimage);
 $stmt->bindParam(':quantity', $quantity);
+$stmt->bindParam(':promo', $promo);
 // linking all the data to table
 $stmt->execute();
 
@@ -203,14 +215,17 @@ $description = "description details for 3";
 $category = "1";
 $itemimage = "keychain3.jpg";
 $quantity = "3";
+$promo = "1";
+
 // product default data1 in order to input into tables
-$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity, Promo)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity, :promo)");
 $stmt->bindParam(':name', $name);
 $stmt->bindParam(':price', $price);
 $stmt->bindParam(':description', $description);
 $stmt->bindParam(':category', $category);
 $stmt->bindParam(':itemimage', $itemimage);
 $stmt->bindParam(':quantity', $quantity);
+$stmt->bindParam(':promo', $promo);
 // linking all the data to table
 $stmt->execute();
 
@@ -221,14 +236,17 @@ $description = "description details for 4";
 $category = "1";
 $itemimage = "keychain1.jpg";
 $quantity = "3";
+$promo = "1";
+
 // product default data1 in order to input into tables
-$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity, Promo)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity, :promo)");
 $stmt->bindParam(':name', $name);
 $stmt->bindParam(':price', $price);
 $stmt->bindParam(':description', $description);
 $stmt->bindParam(':category', $category);
 $stmt->bindParam(':itemimage', $itemimage);
 $stmt->bindParam(':quantity', $quantity);
+$stmt->bindParam(':promo', $promo);
 // linking all the data to table
 $stmt->execute();
 
@@ -238,14 +256,17 @@ $description = "description details for 5";
 $category = "1";
 $itemimage = "promo5.jpg";
 $quantity = "3";
+$promo = "1";
+
 // product default data1 in order to input into tables
-$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity, Promo)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity, :promo)");
 $stmt->bindParam(':name', $name);
 $stmt->bindParam(':price', $price);
 $stmt->bindParam(':description', $description);
 $stmt->bindParam(':category', $category);
 $stmt->bindParam(':itemimage', $itemimage);
 $stmt->bindParam(':quantity', $quantity);
+$stmt->bindParam(':promo', $promo);
 // linking all the data to table
 $stmt->execute();
 
@@ -255,14 +276,17 @@ $description = "description details for 6";
 $category = "1";
 $itemimage = "promo6.jpg";
 $quantity = "3";
+$promo = "1";
+
 // product default data1 in order to input into tables
-$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity, Promo)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity, :promo)");
 $stmt->bindParam(':name', $name);
 $stmt->bindParam(':price', $price);
 $stmt->bindParam(':description', $description);
 $stmt->bindParam(':category', $category);
 $stmt->bindParam(':itemimage', $itemimage);
 $stmt->bindParam(':quantity', $quantity);
+$stmt->bindParam(':promo', $promo);
 // linking all the data to table
 $stmt->execute();
 
@@ -272,14 +296,17 @@ $description = "description details for 6";
 $category = "1";
 $itemimage = "promo7.jpg";
 $quantity = "3";
+$promo = "1";
+
 // product default data1 in order to input into tables
-$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity, Promo)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity, :promo)");
 $stmt->bindParam(':name', $name);
 $stmt->bindParam(':price', $price);
 $stmt->bindParam(':description', $description);
 $stmt->bindParam(':category', $category);
 $stmt->bindParam(':itemimage', $itemimage);
 $stmt->bindParam(':quantity', $quantity);
+$stmt->bindParam(':promo', $promo);
 // linking all the data to table
 $stmt->execute();
 
@@ -290,14 +317,17 @@ $description = "description details for 7";
 $category = "1";
 $itemimage = "promotionproduct1.jpg";
 $quantity = "3";
+$promo = "1";
+
 // product default data1 in order to input into tables
-$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity)");
+$stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity, Promo)VALUES (null,:name, :price,:description,:category, :itemimage, :quantity, :promo)");
 $stmt->bindParam(':name', $name);
 $stmt->bindParam(':price', $price);
 $stmt->bindParam(':description', $description);
 $stmt->bindParam(':category', $category);
 $stmt->bindParam(':itemimage', $itemimage);
 $stmt->bindParam(':quantity', $quantity);
+$stmt->bindParam(':promo', $promo);
 // linking all the data to table
 $stmt->execute();
 
