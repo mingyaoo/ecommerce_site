@@ -12,6 +12,7 @@
         <!-- <link href="cssstyle1.css" rel="stylesheet"> -->
     </head>
 <body>
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="adminportalmain.php">
@@ -26,7 +27,16 @@
                     <a class="nav-link" href="adminusers.php">store users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="storeproduct.php"></a>
+                    <a class="nav-link" href="storecategory.php">create category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profileadmin.php">view admin profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="deleteproduct.php">delete product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">logout</a>
                 </li>
                 </ul>
             </div>

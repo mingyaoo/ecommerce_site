@@ -80,9 +80,19 @@ if (!isset($_SESSION['admin']))
             </div>
             <br><br>
             <div class="row">
-            `<div class="col-sm-3">
+                <div class="col-sm-3">
                     <a href="deleteproduct.php">
                         <button type="button" class="btn btn-dark">delete products</button>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="addpromo.php">
+                        <button type="button" class="btn btn-dark">add a promotional product</button>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="deletepromo.php">
+                        <button type="button" class="btn btn-dark">delete a promotional products</button>
                     </a>
                 </div>
             </div>

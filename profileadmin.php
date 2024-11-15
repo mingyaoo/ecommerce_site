@@ -20,6 +20,7 @@ if (!isset($_SESSION['loggedinidadmin']))
 ?>
 <!-- ^leads to the signup page where you can also enter if you have an admin accesss -->
 
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="adminportalmain.php">
@@ -37,15 +38,17 @@ if (!isset($_SESSION['loggedinidadmin']))
                     <a class="nav-link" href="storecategory.php">create category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout.php">logout</a>
+                    <a class="nav-link" href="profileadmin.php">view admin profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="profileadmin.php">view admin profile</a>
+                    <a class="nav-link" href="deleteproduct.php">delete product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">logout</a>
                 </li>
                 </ul>
             </div>
         </nav>
-
         <div class="container-fluid" style="padding:100px">
             <div class="profile-container">
             <div class="row">

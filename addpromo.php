@@ -12,6 +12,7 @@
         <!-- <link href="cssstyle1.css" rel="stylesheet"> -->
     </head>
 <body>
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="adminportalmain.php">
@@ -26,7 +27,16 @@
                     <a class="nav-link" href="adminusers.php">store users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="storeproduct.php"></a>
+                    <a class="nav-link" href="storecategory.php">create category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profileadmin.php">view admin profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="deleteproduct.php">delete product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">logout</a>
                 </li>
                 </ul>
             </div>
@@ -36,11 +46,11 @@
         <div class="card">
             <div class="card-body" style="padding:100px">
                 <h1> Add a promotional product:</h1>
-                <form action="addpromoprocess.php" method = "post"  enctype="multipart/form-data">
+                <form action="addpromoprocess.php" method = "post">
                     <select name="promo">
                         <?php
                             include_once("connection.php");                   
-                            $stmt = $conn->prepare("SELECT * FROM TblProducts ORDER BY Productname ASC WHERE promo = 0");
+                            $stmt = $conn->prepare("SELECT * FROM TblProducts WHERE promo = 0 ORDER BY ProductName ASC");
                             $stmt->execute();
                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
                             {

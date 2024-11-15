@@ -9,7 +9,7 @@ print_r($_FILES);
 
 $stmt = $conn->prepare("UPDATE TblProducts SET promo = 1 WHERE ProductID = :productid");
 
-$stmt->bindParam(':productid', $_POST["productid"]);
+$stmt->bindParam(':productid', $_POST["promo"]);
 
 $stmt->execute();
 
