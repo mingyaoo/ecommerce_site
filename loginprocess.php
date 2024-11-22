@@ -15,6 +15,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     if(password_verify($attempt,$hashed)){
         $_SESSION['name']=$row["Forename"];
         $_SESSION['loggedinid']=$row["UserID"];
+        $_SESSION['user'] = "user";
+
         
 
         $today = new DateTime();
