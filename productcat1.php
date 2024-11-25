@@ -143,9 +143,6 @@
 
                 <div class="text-center">
 
-                    <button  class="btn btn-secondary text btn-lg" value="buy now">
-                        buy now
-                    </button>
                     <br>
                     <br>
                     <form action="basketadd.php" method="post">

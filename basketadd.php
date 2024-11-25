@@ -4,6 +4,11 @@ session_start();
 include_once("connection.php");
 array_map("htmlspecialchars", $_POST);
 
+if (!isset($_SESSION['user']))
+{   
+    header("Location:login.php");
+}
+
 //connects all information towards my table
 
 
