@@ -110,11 +110,6 @@
                         <br>
                         Image: <input type="file" id="piccy" name="piccy" accept="image/*"><br>
                         <br>
-                        Role:<select name="role">
-                                <option value="Admin">Admin</option>
-                                <option value="User">User</option>
-                            </select>
-                        <br>
                         <br>
                         <div class="text-center">
                             <button  class="btn btn-primary btn-dark text " value="Add User">
