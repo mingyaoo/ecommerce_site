@@ -80,6 +80,7 @@
 <!-- bootstrap to organise grids of 2 columns-->
         <div class="row">
             <div class="col-6" style="padding-top:40px">
+            <!-- get picture from the folder correpsonding to correct item id -->
                 <?php
                         include_once('connection.php');
                         $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = :item_id");
@@ -100,7 +101,7 @@
                     <li>review 3</li>
                 </ul>
             </div>
-            
+            <!-- second part of grid to output all detaisl required about the item -->
             <div class="col-6" style="padding-top:40px">
                 <?php
                     include_once ("connection.php");
@@ -118,31 +119,23 @@
 
                     }
                 ?>
-
                 <div style="text-align: right; padding-right:50px;">
                     <form action="favouriteprocess.php" method="post">
                         <?php
                         $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE ProductID = :item_id" );
                         $stmt->bindParam(':item_id', $_POST["item_id"]);
                         $stmt->execute();
-
-
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
                             {
-
                                 echo (" 
-                                <button type='submit' class='btn btn-secondary text btn-lg' name='productid' value='" .$row["ProductID"] ."'> favourites </button>
-                               
+                                <button type='submit' class='btn btn-secondary text btn-lg' name='productid' value='" .$row["ProductID"] ."'> favourites </button>       
                                     ");
                             }
-
                         ?>
                     </form>
                 </div>
-
-
                 <div class="text-center">
-
+                <!-- button to add to cart and favourites -->
                     <br>
                     <br>
                     <form action="basketadd.php" method="post">

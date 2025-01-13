@@ -77,7 +77,7 @@
                 </div>
             </div>
         </nav>
-                
+<!-- php to find which category the page is (gets the id from last page) -->
         <?php 
         include_once('connection.php');
         $stmt = $conn->prepare("SELECT * FROM tblcategory WHERE CategoryID = :cat_id");

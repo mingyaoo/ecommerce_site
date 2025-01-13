@@ -78,7 +78,7 @@
             </div>
         </nav>
                 
-
+<!-- checking for loggedin user -->
         <?php
             if (!isset($_SESSION['loggedinid']))
             {   
@@ -93,12 +93,13 @@
         ?>
 
 
-
+<!-- uses a container for each different detail to make it clear -->
         <div class="container-fluid" style="padding:100px">
             <div class="profile-container">
             <div class="row">
                 <div class="col-sm-4">
                     <h3>Profile picture</h3>
+                    <!-- php to output picture of user -->
                     <?php
                             include_once('connection.php');
                             $stmt = $conn->prepare("SELECT * FROM tblusers WHERE UserID = :loggedinid");
@@ -152,7 +153,6 @@
                     ?>
                     </div>
                 </div>
-                <!-- decrypt password -->
             </div>
             <div class="profile-container">
                 <div class="row">

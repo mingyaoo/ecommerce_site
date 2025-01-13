@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-
 <?php
-session_start(); 
-if (!isset($_SESSION['user']))
-{   
-    header("Location:login.php");
-}
+
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+
+
+        if (!isset($_SESSION['user']))
+        {   
+            header("Location:login.php");
+        }
 ?>
 <html>
 
@@ -98,55 +101,34 @@ if (!isset($_SESSION['user']))
         
         <h1 style="text-align:center;">Check out for user</h1>
 
-
+<!-- creates a form for all details being entered -->
         <div class="container-fluid mt-3">
             <form action = "checkoutprocess.php" method = "post">
             <div class="row">
-                <form action = "" method = "post">
                 <div class="col-sm-4">
                     <h3 style="text-align:center;">Enter your delivery address</h3>
                     <div class="inputshort">
-                        <h6>Country:</h6>
-                        <input type="text" name = "country" style="width:100%;"><br>
-                        <br>
-                        <h6>Full name:</h6>
-                        <input type="text" name="fullname" style="width:100%;"><br>
-                        <br>
-                        <h6>Street address:</h6>
-                        <input type="text" name="streetaddress" style="width:100%;"><br>
-                        <br>
-                        <h6>City:</h6>
-                        <input type="text" name="city" style="width:100%;"><br>
-                        <br>
-                        <h6>Postcode:</h6>
-                        <input type="text" name="postcode" style="width:100%;"><br>
-                        <br>
-                        <h6>Phone Number:</h6>
-                        <input type="text" name="phoneno" style="width:100%;"><br>
-                        <br>
+                        <input type="text" name="fullname" placeholder="Full name" required><br><br>
+                        <input type="text" name="address1" placeholder="address1" required><br><br>
+                        <input type="text" name="address2" placeholder="address2" required><br><br>
+                        <input type="text" name="city" placeholder="city" required><br><br>
+                        <input type="text" name="country" placeholder="country" required><br><br>
+                        <input type="text" name="postcode" placeholder="postcode" required><br><br>
                     </div>
                 </div>
-
+<!-- ^ delivery details -->
 
                 <div class="col-sm-4" style="padding-top: 75px;">
                     <h3 style="text-align:center;">Enter your payment details</h3>
                     <div class="inputshort">
-                        <h6>Cardholder's name:</h6>
-                        <input type="text" name = "cardname" style="width:100%;"><br>
-                        <br>
-                        <h6>Card number:</h6>
-                        <input type="text" name="cardno" style="width:100%;"><br>
-                        <br>
-                        <h6>Expiry date:</h6>
-                        <input type="text" name="expdate" style="width:100%;"><br>
-                        <br>
-                        <h6>cvv:</h6>
-                        <input type="text" name="cvv" style="width:100%;"><br>
-                        <br>
+                        <input type="text" name="cardnumber" placeholder="card number" required><br><br>
+						<input type="month" name="expdate" placeholder="expiry date" required><br><br>
+                        <input type="text" name="cardholdername" placeholder="card holder name" required><br><br>
+
                     </div>
                 </div>
-
-
+<!-- ^payment details -->
+<!-- same funcion as before to calculate the total price  -->
                 <div class="col-sm-4" style="padding-top:175px">
                     <div class="row">
                         <div class="col-sm-8">

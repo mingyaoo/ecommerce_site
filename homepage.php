@@ -105,14 +105,12 @@
                             include_once('connection.php');
                             echo ('<img src="pictures/promo3.jpg" class="d-block w-100" height="500px"><br>');
                         ?>   
-                    <!-- <img src="keychain2.jpg" alt="" class="d-block w-100" height="500px"> -->
                 </div>
                 <div class="carousel-item">
                 <?php
                             include_once('connection.php');
                             echo ('<img src="pictures/keychain2.jpg" class="d-block w-100" height="500px"><br>');
                         ?>   
-                    <!-- <img src="keychain3.jpg" alt="" class="d-block w-100" height="500px"> -->
                 </div>
             </div>
 
@@ -126,14 +124,13 @@
         </div>
 
         <!--there will be multiple boxes for pictures and diagrams to showcase some products -->
-
-
                 <div class="row", style="padding:15px;padding-bottom:10px; background-color:#99DDFF;">
                     <div class="col-sm-3" style="text-align:center">
                     <br>
                     <br>
                         <h1 style="padding-top:45px;">Promotional Products</h1>
-                    </div>          
+                    </div>      
+                        <!--php code for outputting all products which is assigned as a promo  -->
                 <?php
                         include_once('connection.php');
                         $stmt = $conn->prepare("SELECT * FROM tblproducts WHERE promo = 1");
@@ -166,7 +163,7 @@
 
                             }
                     ?> 
-
+<!-- php code for all the diff categories in my table -->
         <div class="container-fluid" style="background-color:#99DDFF;">
             <h2 style="text-align:center; padding-top:30px">Shop by Category</h2>
             <div class="row", style="padding:15px;padding-bottom:10px;">
@@ -201,7 +198,6 @@
                     ?> 
             </div>
         </div>
-
         <!-- this is another box / container to act as a footer for the webpage-->
         <footer>
             <div class="container-fluid", style="background-color: #3FD2C7;padding:75px;">
@@ -221,11 +217,5 @@
             </h4>
             </div>
         </footer>
-
-    
-
-
-
-
     </body>
 </html>

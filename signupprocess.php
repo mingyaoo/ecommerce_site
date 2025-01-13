@@ -25,7 +25,7 @@ $stmt->bindParam(':Pic', $_FILES["piccy"]["name"]);
 $stmt->execute();
 $conn=null;
 
-
+// sorts out the images to add when creating an account
 $target_dir = "profilepic/";
 print_r($_FILES);
 $target_file = $target_dir . basename($_FILES["piccy"]["name"]);

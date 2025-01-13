@@ -92,13 +92,14 @@
         ?>
 
        
-
+<!-- creating a grid to showcase items and payment -->
         <div class="row">
             <div class="col-sm-8">
                 <div class="container-fluid" style="padding-left:100px; padding-top:100px;">
                     <h2>Items in your Basket</h2>
                     <div class="row">
                         <div class="col-sm-6">
+                            <!-- php to output the data using inner join (order currently logged in) -->
                             <?php
                                 include_once ("connection.php");
                                 $stmt = $conn->prepare("SELECT tblproducts.ProductName as pn 
@@ -117,6 +118,7 @@
                                 }
                             ?>
                         </div>
+                        <!-- php to showcase price (grid inside another grid) -->
                         <div class="col-sm-6">
                             <?php
                                 include_once ("connection.php");
@@ -151,6 +153,7 @@
                     
                 </div>
             </div>
+            <!-- second section to calculate price -->
             <div class="col-sm-4">
                 <div class="container-fluid" style="padding-top:100px;">
                     <h3>How will you pay?</h3>
@@ -165,6 +168,7 @@
                         </div>
                         <div class="col-sm-4">
                         <?php
+                        // function to calculate the price of the product
                             include_once ("connection.php");
                             function multiplynum($num1, $num2) {
                                 $result = (int)$num1 * (int)$num2;
@@ -193,6 +197,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- button to submit form -->
                 <div class="text-center">
                         <form action="checkout.php" method="post">
                             <button  class="btn btn-primary btn-dark text btn-lg" name="checkout">

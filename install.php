@@ -75,6 +75,21 @@ $stmt->execute();
 $stmt->closeCursor();
 
 
+// seventh table for orders
+$stmt = $conn->prepare("DROP TABLE IF EXISTS TblOrders;
+CREATE TABLE TblOrders 
+(OrderNo INT(6) UNSIGNED FOREIGN KEY,
+address1 VARCHAR(100) NOT NULL,
+address2 VARCHAR(100) NOT NULL,
+city VARCHAR(100) NOT NULL,
+country VARCHAR(100) NOT NULL,
+postcode INT(10) NOT NULL,
+card number INT(16) NOT NULL,
+expiry date VARCHAR(100) NOT NULL,
+card holder name VARCHAR(100) NOT NULL)");
+$stmt->execute();
+$stmt->closeCursor();
+
 
 // ...............................................................................................
 

@@ -75,7 +75,7 @@
                 </div>
             </div>
         </nav>
-
+<!-- checking if theres any user logged in and displaying appropriate message -->
         <?php
             if (!isset($_SESSION['loggedinid']))
             {   
@@ -92,7 +92,7 @@
 
         <div class="container" style="padding:100px">
             <h1>Favourite Items</h1>
-
+<!-- php using innerjoin to find the items under favourites and otuput the details of it -->
             <?php
                 include_once ("connection.php");
                 $stmt = $conn->prepare("SELECT tblproducts.ProductName as pn, 
@@ -128,23 +128,8 @@
                                     ");
                                 }
                             ?>
-
+                            <!-- last line = button to remove the favourited items -->
         </div>
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
 
         <!-- this is another box / container to act as a footer for the webpage-->
         <footer>
