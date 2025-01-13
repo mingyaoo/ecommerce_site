@@ -42,10 +42,11 @@
             </div>
         </nav>
 
-        
+        <!-- card in order to format all of the options in one area -->
         <div class="card">
             <div class="card-body" style="padding:100px">
                 <h1> creating a new product:</h1>
+                <!-- form to send to the process page -->
                 <form action="storeproductcode.php" method = "post"  enctype="multipart/form-data">
                     <h6>product name:</h6>
                     <input type="text" name="productname" class="inputlong"><br>
@@ -61,6 +62,7 @@
                                 <br>
                     <h6>category:</h6>
                     <select name="category">
+                        <!-- outputs all the names of the categories in drop down list -->
                         <?php
                             include_once("connection.php");                   
                             $stmt = $conn->prepare("SELECT * FROM TblCategory ORDER BY Category ASC");
@@ -73,10 +75,6 @@
                             }
                         ?>
                     </select>
-
-
-
-
                     <h6>Image:</h6>
                     <input type="file" id="piccy" name="piccy" accept="image/*" class="inputlong"><br>
                                 <br>

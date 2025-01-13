@@ -48,6 +48,7 @@
                 <h1> Add a promotional product:</h1>
                 <form action="addpromoprocess.php" method = "post">
                     <select name="promo">
+                        <!-- selects al of the data into a drop down list that have a promo of 0 (not a promo yet) -->
                         <?php
                             include_once("connection.php");                   
                             $stmt = $conn->prepare("SELECT * FROM TblProducts WHERE promo = 0 ORDER BY ProductName ASC");

@@ -48,6 +48,7 @@
                 <h1> Delete a product:</h1>
                 <form action="deleteproductprocess.php" method = "post"  enctype="multipart/form-data">
                     <select name="productid">
+                        <!-- sql statement to output all of the products -->
                         <?php
                             include_once("connection.php");                   
                             $stmt = $conn->prepare("SELECT * FROM TblProducts ORDER BY Productname ASC");
