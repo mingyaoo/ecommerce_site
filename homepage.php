@@ -1,7 +1,7 @@
-
 <?php
                 session_start();
                 ?>
+                <!-- create a session variable for logging in -->
 <!DOCTYPE html>
 <html>
 
@@ -28,6 +28,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" style="color:white" data-bs-toggle="dropdown" href="categories.php">Categories</a>
                         <ul class="dropdown-menu">
+                            <!-- dropdown menu is linked to each category page via cat id -->
                             <?php
                                 include_once("connection.php");
                                 $stmt = $conn->prepare("SELECT * FROM tblcategory");
@@ -53,6 +54,7 @@
                     <button class="btn btn-primary" type="button">Search</button>
                 </form>
                 <ul class="navbar-nav me-auto">
+                    <!-- rest of functions on nav bar links -->
                     <li class="nav-item">
                         <a class="nav-link" href="favourite.php">Favourites</a>
                     </li>
@@ -138,6 +140,7 @@
                         $stmt->execute();
                         $nextrow=1;
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                        // getting images using a folder
                             {
                                 echo (" 
                                 <div class='col-sm-3'>
@@ -151,6 +154,7 @@
                                     </form>            
                                     </div>
                                     ");
+                                    // code to break the images onto next line after 4 has passed
                                 $nextrow+=1;
                                 if($nextrow==4){
                                     echo("</div>");
@@ -170,6 +174,7 @@
             <?php
                         include_once('connection.php');
                         $stmt = $conn->prepare("SELECT * FROM tblcategory");
+                        // sql code to output all information about category using images
 
                         $stmt->execute();
                         $nextrow=1;
@@ -186,6 +191,7 @@
                                     </form> 
                                     </div>
                                     ");
+                                    // divide the rows
                                 $nextrow+=1;
                                 if($nextrow==5){
                                     echo("</div>");

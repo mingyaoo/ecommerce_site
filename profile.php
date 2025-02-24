@@ -115,6 +115,7 @@
                     <a href="#">edit Profile Picture</a>
                     <p>Must be .jpg, .gif or .png file smaller than 10 MB and at least 400 px by 400 px </p>
                 </div>
+                <!-- initial idea is a link o edit the profile, but havent added it yet -->
             </div>
     
             </div>
@@ -124,6 +125,7 @@
                         <h5>Your Name -</h5>
                     </div>
                     <div class="col-sm-8" style="font-size:20px"> 
+                    <!-- sql to output profile information -->
                         <?php
                         include_once ("connection.php");
                         $stmt = $conn->prepare("SELECT forename FROM tblusers WHERE UserID = :loggedinid" );
@@ -143,6 +145,8 @@
                     </div>
                     <div class="col-sm-8" style="font-size:20px"> 
                         <?php
+                        // sql to output email information
+                        // same as below
                         include_once ("connection.php");
                         $stmt = $conn->prepare("SELECT email FROM tblusers WHERE UserID = :loggedinid" );
                         $stmt->bindParam(':loggedinid', $_SESSION['loggedinid']);

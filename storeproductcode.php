@@ -4,9 +4,7 @@ print_r($_POST);
 include_once('connection.php');
 array_map("htmlspecialchars", $_POST);
 
-print_r($_FILES);
-
-
+// sql to input information regarding product information
 $stmt = $conn->prepare("INSERT INTO TblProducts (ProductID,ProductName,Price,Description,CategoryID, ItemImage, Quantity)VALUES (null,:productn,:price,:description,:category,:Pic,:quantity)");
 
 $stmt->bindParam(':productn', $_POST["productname"]);
@@ -17,6 +15,7 @@ $stmt->bindParam(':category', $_POST["category"]);
 $stmt->bindParam(':Pic', $_FILES["piccy"]["name"]);
 $stmt->execute();
 
+// code for images and to add images to a folder 
 $target_dir = "images/";
 print_r($_FILES);
 $target_file = $target_dir . basename($_FILES["piccy"]["name"]);
