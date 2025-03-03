@@ -49,16 +49,16 @@
                 <!-- form to send to the process page -->
                 <form action="storeproductcode.php" method = "post"  enctype="multipart/form-data">
                     <h6>product name:</h6>
-                    <input type="text" name="productname" class="inputlong"><br>
+                    <input type="text" name="productname" class="inputlong" required><br>
                     <br>
                     <h6>price:</h6>
-                    <input type="real" name="price" class="inputlong"><br>
+                    <input type="number" min = "0" step = "0.01" name="price" class="inputlong" required><br>
                                 <br>
                     <h6>description:</h6>
-                    <input type="text" name="descrip" class="inputlong"><br>
+                    <input type="text" name="descrip" class="inputlong" required><br>
                                 <br>
                     <h6>quantity:</h6>
-                    <input type="integer" name="quant" class="inputlong"><br>
+                    <input type="number" min="0" name="quant" class="inputlong" required><br>
                                 <br>
                     <h6>category:</h6>
                     <select name="category">

@@ -89,24 +89,24 @@
                 <form action="signupprocess.php" method="post">
                     <!--creates a form in which im able to send information to my php process page-->
                         <h6>Email:</h6>
-                        <input type="text" name="emailuser" class="inputlong"><br>
+                        <input type="text" name="emailuser" class="inputlong" required><br>
                         <br>
                         <h6>Password:</h6>
-                        <input type="text" name="pwuser" class="inputlong"><br>
+                        <input type="text" name="pwuser" class="inputlong" required><br>
                         <br>
                         <h6>Forename:</h6>
-                        <input type="text" name="forename" class="inputlong"><br>
+                        <input type="text" name="forename" class="inputlong" required><br>
                         <h6>Surname:</h6>
-                        <input type="text" name="surname" class="inputlong"><br>
+                        <input type="text" name="surname" class="inputlong" required><br>
                         <br>
                         <h6>Address:</h6>
-                        <input type="text" name="address" class="inputlong"><br>
+                        <input type="text" name="address" class="inputlong" required><br>
                         <br>
                         <h6>Postcode:</h6>
-                        <input type="text" name="postcode" class="inputlong"><br>
+                        <input type="text" name="postcode" class="inputlong" required><br>
                         <br>
                         <h6>PhoneNo:</h6>
-                        <input type="text" name="phonenumber" class="inputlong"><br>
+                        <input type="text" name="phonenumber" class="inputlong" required><br>
                         <br>
                         Image: <input type="file" id="piccy" name="piccy" accept="image/*"><br>
                         <br>

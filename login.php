@@ -88,10 +88,10 @@
                 <form action="loginprocess.php" method="post">
                     <!--creates a form in which im able to send information to my php process page-->
                     <h6>Email:</h6>
-                    <input type="text" name="email" class="inputlong"><br>
+                    <input type="text" name="email" class="inputlong" required><br>
                     <br>
                     <h6>Password:</h6>
-                    <input type="text" name="pw" class="inputlong"><br>
+                    <input type="text" name="pw" class="inputlong" required><br>
 
                     <p style="text-align:right; color:#C7C7C7">Forgot your password?</p>
                     <br>

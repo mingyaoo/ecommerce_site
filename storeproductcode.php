@@ -30,7 +30,7 @@ if (move_uploaded_file($_FILES["piccy"]["tmp_name"], $target_file)) {
 
 
 
-header('Location: storeproduct.php');
+header('Location: adminportalmain.php');
 
 ?>
 
